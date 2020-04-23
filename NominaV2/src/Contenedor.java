@@ -9,7 +9,7 @@
  * @author TagoKG
  */
 public class Contenedor extends javax.swing.JFrame {
-
+private Nomina_Empleados nuevaVentana2;
     /**
      * Creates new form Contenedor
      */
@@ -56,6 +56,11 @@ public class Contenedor extends javax.swing.JFrame {
         jMenu1.add(jMenuItem2);
 
         jMenuItem1.setText("Nomina");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem1);
 
         jMenuBar1.add(jMenu1);
@@ -85,6 +90,11 @@ public class Contenedor extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    nuevaVentana2=new Nomina_Empleados();
+    jDesktopPane1.add (nuevaVentana2);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -131,4 +141,10 @@ public class Contenedor extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     // End of variables declaration//GEN-END:variables
+
+    private static class MantenimientoNomina {
+
+        public MantenimientoNomina() {
+        }
+    }
 }
