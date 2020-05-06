@@ -1,4 +1,6 @@
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -22,6 +24,9 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
+         Toolkit toolkit = getToolkit();
+        Dimension size = toolkit.getScreenSize();
+        setLocation(size.width/2 - getWidth()/2,size.height/2 - getHeight()/2);
     }
 
     /**
@@ -106,14 +111,14 @@ public class Login extends javax.swing.JFrame {
             ResultSet rs = pst.executeQuery();
             
             if(rs.next()){
-                JOptionPane.showMessageDialog(null, "Username and Passowrd Matched");
+                JOptionPane.showMessageDialog(null, "Usuario y Contraseña Correctos");
                 Contenedor contenedor = new Contenedor();
                 contenedor.setVisible(true);
                 
             }
             
             else{
-                 JOptionPane.showMessageDialog(null, "Username and Passowrd Donot Matched");
+                 JOptionPane.showMessageDialog(null, "Usuarios y contraseña Incorrectos");
               txtUsuario.setText("");
               txtContraseña.setText("");
             }
