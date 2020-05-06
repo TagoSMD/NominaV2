@@ -14,6 +14,7 @@ import java.awt.Toolkit;
  */
 public class Contenedor extends javax.swing.JFrame {
 private Nomina_Empleados nuevaVentana2;
+private Empleados nuevaVentana1;
     /**
      * Creates new form Contenedor
      */
@@ -62,6 +63,11 @@ private Nomina_Empleados nuevaVentana2;
 
         jMenuItem2.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 18)); // NOI18N
         jMenuItem2.setText("Empleados");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem2);
 
         jMenuItem1.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 18)); // NOI18N
@@ -117,6 +123,12 @@ private Nomina_Empleados nuevaVentana2;
         // TODO add your handling code here:
         dispose();
     }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+        nuevaVentana1=new Empleados();
+     jDesktopPane1.add (nuevaVentana1);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments
