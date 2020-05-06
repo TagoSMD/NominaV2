@@ -85,7 +85,7 @@ private Empleados nuevaVentana1;
         jMenu2.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 18)); // NOI18N
         jMenuBar1.add(jMenu2);
 
-        jMenu3.setText("Salir");
+        jMenu3.setText("Opciones");
         jMenu3.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 18)); // NOI18N
 
         jMenuItem3.setText("Salir");
