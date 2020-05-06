@@ -1,3 +1,10 @@
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -39,6 +46,11 @@ public class Login extends javax.swing.JFrame {
         jLabel2.setText("Contraseña:");
 
         jButton1.setText("Iniciar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -79,6 +91,38 @@ public class Login extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    try{
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/testdb", "root", "kingcobra123DA");
+            String sql = "Select * from login where username=? and password =?";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1, txtUsuario.getText());
+            pst.setString(2, txtContraseña.getText());
+            ResultSet rs = pst.executeQuery();
+            
+            if(rs.next()){
+                JOptionPane.showMessageDialog(null, "Username and Passowrd Matched");
+                Contenedor contenedor = new Contenedor();
+                contenedor.setVisible(true);
+                
+            }
+            
+            else{
+                 JOptionPane.showMessageDialog(null, "Username and Passowrd Donot Matched");
+              txtUsuario.setText("");
+              txtContraseña.setText("");
+            }
+        con.close();
+           
+        }
+      
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+            
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
