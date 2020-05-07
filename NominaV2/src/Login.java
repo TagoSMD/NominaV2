@@ -103,7 +103,7 @@ public class Login extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
     try{
             Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/testdb", "root", "kingcobra123DA");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/login1", "root", "kingcobra123DA");
             String sql = "Select * from login where username=? and password =?";
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setString(1, txtUsuario.getText());
