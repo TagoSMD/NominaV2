@@ -70,6 +70,11 @@ public class Nomina_Empleados extends javax.swing.JInternalFrame {
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
+        try {
+            setSelected(true);
+        } catch (java.beans.PropertyVetoException e1) {
+            e1.printStackTrace();
+        }
         setVisible(true);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos Empleado", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Times New Roman", 1, 18), new java.awt.Color(0, 0, 153))); // NOI18N
@@ -307,10 +312,9 @@ public class Nomina_Empleados extends javax.swing.JInternalFrame {
                                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(105, 105, 105)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(jButton3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(15, 15, 15)
                                 .addComponent(txt_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -424,7 +428,7 @@ int ICod=0;
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
             try{
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/nominae", "root", "kingcobra123DA");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/nominae", "root", "");
             PreparedStatement pst = cn.prepareStatement("insert into nomina values(?,?,?,?,?,?,?,?,?,?,?)");
             
             pst.setString(1, "0");
@@ -459,7 +463,7 @@ int ICod=0;
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
    //Codigo que permite borrar registros en la base de datos
         try {
-             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/nominae", "root", "kingcobra123DA");
+             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/nominae", "root", "");
             PreparedStatement pst = cn.prepareStatement("delete from nomina where ID = ?");
             
             pst.setString(1, txt_buscar.getText().trim());
@@ -487,7 +491,7 @@ int ICod=0;
         // TODO add your handling code here:
                 //Codigo que permite consultar registros en la base de datos
         try{
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/nominae", "root", "kingcobra123DA");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/nominae", "root", "");
             PreparedStatement pst = cn.prepareStatement("select * from nomina where ID = ?");
             pst.setString(1, txt_buscar.getText().trim());
             
@@ -520,7 +524,7 @@ int ICod=0;
          try {
             String ID = txt_buscar.getText().trim();
             
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/nominae", "root", "kingcobra123DA");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/nominae", "root", "");
             PreparedStatement pst = cn.prepareStatement("update nomina set nombre_empleado = ?, puesto_empleado = ?, sueldo_empleado = ?, bonificacion_empleado = ?, igss_empleado = ?, otros_empleado = ?, sueldoe_empleados = ?, horase_empleados = ?, isr_empleados = ? , descuentos_empleados = ?  where ID = " + ID);
 
             pst.setString(1, txt_nombreE.getText().trim());
