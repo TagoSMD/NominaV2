@@ -55,13 +55,15 @@ private Empleados nuevaVentana1;
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 663, Short.MAX_VALUE)
+            .addGap(0, 635, Short.MAX_VALUE)
         );
 
-        jMenu1.setText("Nomina");
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/catalogo.png"))); // NOI18N
+        jMenu1.setText("Catalogo");
         jMenu1.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 18)); // NOI18N
 
         jMenuItem2.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 18)); // NOI18N
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/empleado.png"))); // NOI18N
         jMenuItem2.setText("Empleados");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -71,6 +73,7 @@ private Empleados nuevaVentana1;
         jMenu1.add(jMenuItem2);
 
         jMenuItem1.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 18)); // NOI18N
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/nomina.png"))); // NOI18N
         jMenuItem1.setText("Nomina");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -81,13 +84,16 @@ private Empleados nuevaVentana1;
 
         jMenuBar1.add(jMenu1);
 
+        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/editar.png"))); // NOI18N
         jMenu2.setText("Editar");
         jMenu2.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 18)); // NOI18N
         jMenuBar1.add(jMenu2);
 
+        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Opciones.png"))); // NOI18N
         jMenu3.setText("Opciones");
         jMenu3.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 18)); // NOI18N
 
+        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/salir.png"))); // NOI18N
         jMenuItem3.setText("Salir");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
