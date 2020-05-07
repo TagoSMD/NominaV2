@@ -81,7 +81,7 @@ public class Login extends javax.swing.JFrame {
         jPanel1.add(txtContraseña);
         txtContraseña.setBounds(100, 80, 150, 22);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Tago\\Downloads\\Photo-1-2.jpg")); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Photo-1-2.jpg"))); // NOI18N
         jLabel3.setText("jLabel3");
         jPanel1.add(jLabel3);
         jLabel3.setBounds(0, 0, 670, 320);
