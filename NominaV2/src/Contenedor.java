@@ -75,6 +75,7 @@ private Departamentos nuevaVentana3;
         jMenu1.add(jMenuItem2);
 
         jMenuItem4.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 18)); // NOI18N
+        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/departamento.png"))); // NOI18N
         jMenuItem4.setText("Departamentos");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

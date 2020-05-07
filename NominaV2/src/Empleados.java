@@ -57,6 +57,7 @@ public class Empleados extends javax.swing.JInternalFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         txt_buscar = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
 
         setClosable(true);
         setIconifiable(true);
@@ -123,6 +124,9 @@ public class Empleados extends javax.swing.JInternalFrame {
             }
         });
 
+        jLabel11.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 24)); // NOI18N
+        jLabel11.setText("REGISTRO:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -177,11 +181,17 @@ public class Empleados extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txt_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(318, 318, 318))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(272, 272, 272)
+                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(73, 73, 73)
+                .addContainerGap()
+                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -230,7 +240,7 @@ public class Empleados extends javax.swing.JInternalFrame {
                         .addGap(18, 18, 18)
                         .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(9, 9, 9)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -247,7 +257,7 @@ public class Empleados extends javax.swing.JInternalFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
          try{
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/empleados", "root", "kingcobra123DA");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/empleados", "root", "");
             PreparedStatement pst = cn.prepareStatement("insert into empleado values(?,?,?,?,?,?,?,?,?,?,?)");
             
            pst.setString(1, "0");
@@ -283,7 +293,7 @@ public class Empleados extends javax.swing.JInternalFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
          try{
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/empleados", "root", "kingcobra123DA");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/empleados", "root", "");
             PreparedStatement pst = cn.prepareStatement("select * from empleado where ID = ?");
             pst.setString(1, txt_buscar.getText().trim());
 
@@ -313,7 +323,7 @@ public class Empleados extends javax.swing.JInternalFrame {
           try {
             String ID = txt_buscar.getText().trim();
 
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/empleados", "root", "kingcobra123DA");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/empleados", "root", "");
             PreparedStatement pst = cn.prepareStatement("update empleado set codigo_empleado = ?,nombre_empleado = ?,apellido_empleado = ?,telefono_empleado = ?,correo_empleado = ?,dirreccion_empleado = ?,dpi_empleado = ?,estado_empleado = ?,sueldo_empleado = ?,cargo_empleado = ? where ID = " + ID);
     
             pst.setString(1, txtCodigo.getText().trim());
@@ -353,6 +363,7 @@ public class Empleados extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
