@@ -1,3 +1,10 @@
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -41,7 +48,7 @@ public class Departamentos extends javax.swing.JInternalFrame {
         añadir = new javax.swing.JButton();
         modificar = new javax.swing.JButton();
         buscar = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        Txt_Buscar = new javax.swing.JTextField();
 
         setClosable(true);
         setIconifiable(true);
@@ -141,10 +148,20 @@ public class Departamentos extends javax.swing.JInternalFrame {
         modificar.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
         modificar.setForeground(new java.awt.Color(0, 0, 153));
         modificar.setText("MODIFICAR");
+        modificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modificarActionPerformed(evt);
+            }
+        });
 
         buscar.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
         buscar.setForeground(new java.awt.Color(0, 0, 153));
         buscar.setText("BUSCAR");
+        buscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buscarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -154,7 +171,7 @@ public class Departamentos extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jTextField1)
+                        .addComponent(Txt_Buscar)
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -177,7 +194,7 @@ public class Departamentos extends javax.swing.JInternalFrame {
                 .addGap(33, 33, 33)
                 .addComponent(modificar)
                 .addGap(38, 38, 38)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Txt_Buscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(buscar)
                 .addContainerGap(48, Short.MAX_VALUE))
@@ -212,8 +229,77 @@ public class Departamentos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_CorreoDepaActionPerformed
 
     private void añadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_añadirActionPerformed
-        // TODO add your handling code here:
+     try{
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/Departamentos", "root", "");
+            PreparedStatement pst = cn.prepareStatement("insert into departamento values(?,?,?,?,?,?)");
+            
+            pst.setString(1, "0");
+            pst.setString(2, CodigoDepa.getText().trim());
+            pst.setString(3, NombreDepa.getText().trim());
+            pst.setString(4, EncarDepa.getText().trim());
+            pst.setString(5, TelefonoDepa.getText().trim());
+            pst.setString(6, CorreoDepa.getText().trim());
+            pst.executeUpdate();
+            
+            CodigoDepa.setText("");
+            NombreDepa.setText("");
+            EncarDepa.setText("");
+            TelefonoDepa.setText("");
+            CorreoDepa.setText("");
+           
+        }
+        catch (Exception e)
+        {
+        JOptionPane.showMessageDialog(null, "Registro Departamento Exitoso.");
+        }
     }//GEN-LAST:event_añadirActionPerformed
+
+    private void modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarActionPerformed
+    try {
+            String ID = Txt_Buscar.getText().trim();
+            
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/Departamentos", "root", "");
+            PreparedStatement pst = cn.prepareStatement("update departamento set codigo_departamento = ?, nombre_departamento = ?, encargado_departamento = ?, telefono_departamento = ?, correo_departamento = ? where ID = " + ID);
+
+            pst.setString(1, CodigoDepa.getText().trim());
+            pst.setString(2, NombreDepa.getText().trim());
+            pst.setString(3, EncarDepa.getText().trim());
+            pst.setString(4, TelefonoDepa.getText().trim());
+            pst.setString(5, CorreoDepa.getText().trim());
+            pst.executeUpdate();
+            
+        } catch (Exception e) 
+        { 
+        {
+        JOptionPane.showMessageDialog(null, "Modificacion al Registro Departamentos Exitosamente.");
+        }  
+        }
+    }//GEN-LAST:event_modificarActionPerformed
+
+    private void buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarActionPerformed
+      //Codigo que permite consultar registros en la base de datos
+        try{
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/Departamentos", "root", "");
+            PreparedStatement pst = cn.prepareStatement("select * from departamento where ID = ?");
+            pst.setString(1, Txt_Buscar.getText().trim());
+            
+            ResultSet rs = pst.executeQuery();
+            
+            if(rs.next()){
+          
+                CodigoDepa.setText(rs.getString("codigo_departamento"));
+                NombreDepa.setText(rs.getString("nombre_departamento"));
+                EncarDepa.setText(rs.getString("encargado_departamento"));
+                TelefonoDepa.setText(rs.getString("telefono_departamento"));
+                CorreoDepa.setText(rs.getString("correo_departamento"));
+            } else {
+                JOptionPane.showMessageDialog(null, "Departamento No Registrado.");
+            }
+            
+        }catch (Exception e){
+            
+        }
+    }//GEN-LAST:event_buscarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -222,6 +308,7 @@ public class Departamentos extends javax.swing.JInternalFrame {
     private javax.swing.JTextField EncarDepa;
     private javax.swing.JTextField NombreDepa;
     private javax.swing.JTextField TelefonoDepa;
+    private javax.swing.JTextField Txt_Buscar;
     private javax.swing.JButton añadir;
     private javax.swing.JButton buscar;
     private javax.swing.JLabel jLabel1;
@@ -231,7 +318,6 @@ public class Departamentos extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JButton modificar;
     // End of variables declaration//GEN-END:variables
 }
