@@ -4,6 +4,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -49,6 +50,9 @@ public class Departamentos extends javax.swing.JInternalFrame {
         modificar = new javax.swing.JButton();
         buscar = new javax.swing.JButton();
         Txt_Buscar = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -178,7 +182,7 @@ public class Departamentos extends javax.swing.JInternalFrame {
                         .addComponent(buscar)
                         .addGap(43, 43, 43))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGap(10, 21, Short.MAX_VALUE)
+                        .addGap(10, 66, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(modificar)
                             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -200,15 +204,38 @@ public class Departamentos extends javax.swing.JInternalFrame {
                 .addContainerGap(48, Short.MAX_VALUE))
         );
 
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Codigo Departamento", "Nombre Departamento", "Encargado Departamento", "Telefono Departamento", "Correo Departamento"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        jButton1.setText("Ver");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 706, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -218,7 +245,15 @@ public class Departamentos extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(73, 73, 73)
+                        .addComponent(jButton1)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         pack();
@@ -230,7 +265,7 @@ public class Departamentos extends javax.swing.JInternalFrame {
 
     private void añadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_añadirActionPerformed
      try{
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/Departamentos", "root", "");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/Departamentos", "root", "kingcobra123DA");
             PreparedStatement pst = cn.prepareStatement("insert into departamento values(?,?,?,?,?,?)");
             
             pst.setString(1, "0");
@@ -258,7 +293,7 @@ public class Departamentos extends javax.swing.JInternalFrame {
     try {
             String ID = Txt_Buscar.getText().trim();
             
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/Departamentos", "root", "");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/Departamentos", "root", "kingcobra123DA");
             PreparedStatement pst = cn.prepareStatement("update departamento set codigo_departamento = ?, nombre_departamento = ?, encargado_departamento = ?, telefono_departamento = ?, correo_departamento = ? where ID = " + ID);
 
             pst.setString(1, CodigoDepa.getText().trim());
@@ -279,7 +314,7 @@ public class Departamentos extends javax.swing.JInternalFrame {
     private void buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarActionPerformed
       //Codigo que permite consultar registros en la base de datos
         try{
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/Departamentos", "root", "");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/Departamentos", "root", "kingcobra123DA");
             PreparedStatement pst = cn.prepareStatement("select * from departamento where ID = ?");
             pst.setString(1, Txt_Buscar.getText().trim());
             
@@ -301,6 +336,32 @@ public class Departamentos extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_buscarActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+
+    try{
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/Departamentos", "root", "kingcobra123DA");
+
+PreparedStatement ps=cn.prepareStatement("select * from departamento");
+ResultSet rs=ps.executeQuery();
+DefaultTableModel tm=(DefaultTableModel)jTable1.getModel();
+tm.setRowCount(0);
+while(rs.next())
+{
+   Object o[]={rs.getInt("ID"),rs.getString("codigo_departamento"),rs.getString("nombre_departamento"),rs.getString("encargado_departamento"),rs.getString("telefono_departamento"),rs.getString("correo_departamento")};
+      tm.addRow(o);
+}
+}
+catch(Exception e)
+{
+JOptionPane.showMessageDialog(this,e);
+}
+    
+    //
+
+ 
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField CodigoDepa;
@@ -311,6 +372,7 @@ public class Departamentos extends javax.swing.JInternalFrame {
     private javax.swing.JTextField Txt_Buscar;
     private javax.swing.JButton añadir;
     private javax.swing.JButton buscar;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -318,6 +380,8 @@ public class Departamentos extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JButton modificar;
     // End of variables declaration//GEN-END:variables
 }
