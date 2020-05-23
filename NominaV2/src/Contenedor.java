@@ -1,7 +1,7 @@
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
-
+import Clases.Usuarios;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -13,10 +13,11 @@ import java.awt.Toolkit;
  * @author TagoKG
  */
 public class Contenedor extends javax.swing.JFrame {
+      Usuarios mod;
 private Nomina_Empleados nuevaVentana2;
 private Empleados nuevaVentana1;
 private Departamentos nuevaVentana3;
-    /**
+    /**Usuarios mod;
      * Creates new form Contenedor
      */
     public Contenedor() {
@@ -25,6 +26,40 @@ private Departamentos nuevaVentana3;
         Dimension size = toolkit.getScreenSize();
         setLocation(size.width/2 - getWidth()/2,size.height/2 - getHeight()/2);
     }
+        
+
+  
+    Contenedor(Usuarios mod) {
+        initComponents();
+        setLocationRelativeTo(null);
+        this.mod = mod;
+
+        if (mod.getIdTipo() == 1) {
+            Menucatalogo.setVisible(true);
+              Menueditar.setVisible(false);
+        } else {
+            Menucatalogo.setVisible(false);
+           Menucatalogo.setVisible(false);
+            
+        }
+        if (mod.getIdTipo() == 2) {
+            Menucatalogo.setVisible(false);
+            Menucatalogo.setVisible(true);
+        //} else {
+          //  menuProveedores.setVisible(false);
+           //menuProductos.setVisible(false);
+        }
+            if (mod.getIdTipo() == 3) {
+            Menucatalogo.setVisible(true);
+            Menucatalogo.setVisible(false);
+        //} else {
+          //  menuProveedores.setVisible(false);
+           //menuProductos.setVisible(false);
+        //}
+            }
+    
+    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -37,12 +72,12 @@ private Departamentos nuevaVentana3;
 
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
+        Menucatalogo = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
+        Menueditar = new javax.swing.JMenu();
+        MenuSalir = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -60,9 +95,9 @@ private Departamentos nuevaVentana3;
             .addGap(0, 635, Short.MAX_VALUE)
         );
 
-        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/catalogo.png"))); // NOI18N
-        jMenu1.setText("Catalogo");
-        jMenu1.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 18)); // NOI18N
+        Menucatalogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/catalogo.png"))); // NOI18N
+        Menucatalogo.setText("Catalogo");
+        Menucatalogo.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 18)); // NOI18N
 
         jMenuItem2.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 18)); // NOI18N
         jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/empleado.png"))); // NOI18N
@@ -72,7 +107,7 @@ private Departamentos nuevaVentana3;
                 jMenuItem2ActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem2);
+        Menucatalogo.add(jMenuItem2);
 
         jMenuItem4.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 18)); // NOI18N
         jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/departamento.png"))); // NOI18N
@@ -82,7 +117,7 @@ private Departamentos nuevaVentana3;
                 jMenuItem4ActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem4);
+        Menucatalogo.add(jMenuItem4);
 
         jMenuItem1.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 18)); // NOI18N
         jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/nomina.png"))); // NOI18N
@@ -92,18 +127,18 @@ private Departamentos nuevaVentana3;
                 jMenuItem1ActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
+        Menucatalogo.add(jMenuItem1);
 
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(Menucatalogo);
 
-        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/editar.png"))); // NOI18N
-        jMenu2.setText("Editar");
-        jMenu2.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 18)); // NOI18N
-        jMenuBar1.add(jMenu2);
+        Menueditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/editar.png"))); // NOI18N
+        Menueditar.setText("Editar");
+        Menueditar.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 18)); // NOI18N
+        jMenuBar1.add(Menueditar);
 
-        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Opciones.png"))); // NOI18N
-        jMenu3.setText("Opciones");
-        jMenu3.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 18)); // NOI18N
+        MenuSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Opciones.png"))); // NOI18N
+        MenuSalir.setText("Opciones");
+        MenuSalir.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 18)); // NOI18N
 
         jMenuItem3.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 18)); // NOI18N
         jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/salir.png"))); // NOI18N
@@ -113,9 +148,9 @@ private Departamentos nuevaVentana3;
                 jMenuItem3ActionPerformed(evt);
             }
         });
-        jMenu3.add(jMenuItem3);
+        MenuSalir.add(jMenuItem3);
 
-        jMenuBar1.add(jMenu3);
+        jMenuBar1.add(MenuSalir);
 
         setJMenuBar(jMenuBar1);
 
@@ -190,10 +225,10 @@ private Departamentos nuevaVentana3;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu MenuSalir;
+    private javax.swing.JMenu Menucatalogo;
+    private javax.swing.JMenu Menueditar;
     private javax.swing.JDesktopPane jDesktopPane1;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;

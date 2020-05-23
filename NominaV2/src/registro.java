@@ -3,16 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package clases;
-
-import modelo.Hash;
-import javax.swing.JOptionPane;
-import modelo.SqlUsuarios;
-import modelo.Usuarios;
 
 /**
  *
+ * @author Tago
  */
+
+import Clases.Hash;
+import javax.swing.JOptionPane;
+import Clases.SqlUsuarios;
+import Clases.Usuarios;
+import java.awt.Dimension;
+import java.awt.Toolkit;
+
 public class registro extends javax.swing.JFrame {
 
     /**
@@ -20,7 +23,9 @@ public class registro extends javax.swing.JFrame {
      */
     public registro() {
         initComponents();
-        setLocationRelativeTo(null);
+         Toolkit toolkit = getToolkit();
+        Dimension size = toolkit.getScreenSize();
+        setLocation(size.width/2 - getWidth()/2,size.height/2 - getHeight()/2);
     }
 
     /**
@@ -32,29 +37,74 @@ public class registro extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnRegistrar = new javax.swing.JButton();
-        txtEmail = new javax.swing.JTextField();
-        txtNombre = new javax.swing.JTextField();
-        txtConfirmaPassword = new javax.swing.JPasswordField();
-        txtPassword = new javax.swing.JPasswordField();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        txtUsuario = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
+        txtUsuario = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        txtPassword = new javax.swing.JPasswordField();
+        txtConfirmaPassword = new javax.swing.JPasswordField();
+        txtNombre = new javax.swing.JTextField();
+        txtEmail = new javax.swing.JTextField();
+        btnRegistrar = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowClosing(java.awt.event.WindowEvent evt) {
-                formWindowClosing(evt);
-            }
-        });
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Usuario:");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, -1, -1));
+
+        txtUsuario.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtUsuario.setBorder(null);
+        getContentPane().add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 100, 190, 30));
+
+        jLabel2.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Password:");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("<html>Confirmar Password:</html>");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, -1, -1));
+
+        jLabel4.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Nombre:");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 220, -1, -1));
+
+        jLabel5.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 24)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Email:");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 260, -1, -1));
+
+        txtPassword.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtPassword.setBorder(null);
+        getContentPane().add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 140, 190, 30));
+
+        txtConfirmaPassword.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtConfirmaPassword.setBorder(null);
+        getContentPane().add(txtConfirmaPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 180, 190, 30));
+
+        txtNombre.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtNombre.setBorder(null);
+        getContentPane().add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 220, 190, 30));
+
+        txtEmail.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtEmail.setBorder(null);
+        txtEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEmailActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 257, 190, 30));
+
         btnRegistrar.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 24)); // NOI18N
-        btnRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Save-icon.png"))); // NOI18N
+        btnRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes2/Save-icon.png"))); // NOI18N
         btnRegistrar.setText("Registrar");
         btnRegistrar.setBorder(null);
         btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
@@ -64,61 +114,15 @@ public class registro extends javax.swing.JFrame {
         });
         getContentPane().add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 360, 170, 50));
 
-        txtEmail.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtEmail.setBorder(null);
-        txtEmail.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEmailActionPerformed(evt);
-            }
-        });
-        getContentPane().add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 257, 180, 30));
-
-        txtNombre.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtNombre.setBorder(null);
-        getContentPane().add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 220, 180, 30));
-
-        txtConfirmaPassword.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtConfirmaPassword.setBorder(null);
-        getContentPane().add(txtConfirmaPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 180, 180, 30));
-
-        txtPassword.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtPassword.setBorder(null);
-        getContentPane().add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 140, 180, 30));
-
-        jLabel5.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 24)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Email:");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 260, -1, -1));
-
-        jLabel4.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 24)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Nombre:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 220, -1, -1));
-
-        jLabel3.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("<html>Confirmar Password:</html>");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, -1, -1));
-
-        jLabel2.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Password:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, -1, -1));
-
-        txtUsuario.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtUsuario.setBorder(null);
-        getContentPane().add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 100, 180, 30));
-
-        jLabel1.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Usuario:");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, -1, -1));
-
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Fonto2.jpg"))); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes2/Fonto2.jpg"))); // NOI18N
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 470, 570));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEmailActionPerformed
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
 
@@ -145,13 +149,14 @@ public class registro extends javax.swing.JFrame {
                         mod.setNombre(txtNombre.getText());
                         mod.setEmail(txtEmail.getText());
                         mod.setIdTipo(1);
+                         
 
                         if (modSql.registrar(mod)) {
                             JOptionPane.showMessageDialog(null, "Registro Guardado");
                             limpiar();
                         } else {
                             JOptionPane.showMessageDialog(null, "Error al Guardar");
-                            limpiar();
+                           limpiar();
                         }
                     } else {
                         JOptionPane.showMessageDialog(null, "El email es incorrecto");
@@ -165,16 +170,7 @@ public class registro extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
-    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-
-        Inicio.frmReg = null;
-
-    }//GEN-LAST:event_formWindowClosing
-
-    private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtEmailActionPerformed
-
+    
     private void limpiar() {
         txtUsuario.setText("");
         txtPassword.setText("");
@@ -182,7 +178,9 @@ public class registro extends javax.swing.JFrame {
         txtNombre.setText("");
         txtEmail.setText("");
     }
-
+    /**
+     * @param args the command line arguments
+     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -205,9 +203,6 @@ public class registro extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(registro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
