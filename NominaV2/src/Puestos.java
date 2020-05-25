@@ -61,10 +61,20 @@ public class Puestos extends javax.swing.JInternalFrame {
         jButton1.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         jButton1.setForeground(new java.awt.Color(0, 0, 204));
         jButton1.setText("Añadir ");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         jButton2.setForeground(new java.awt.Color(0, 0, 204));
         jButton2.setText("Modificar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -126,6 +136,59 @@ public class Puestos extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        // Carlos Alfonso Montes carnet: 9959-19-10173
+       try{
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/Departamentos", "root", "kingcobra123DA");
+            PreparedStatement pst = cn.prepareStatement("insert into departamento values(?,?,?,?,?,?)");
+            
+            pst.setString(1, "0");
+            pst.setString(2, CodigoDepa.getText().trim());
+            pst.setString(3, NombreDepa.getText().trim());
+            pst.setString(4, EncarDepa.getText().trim());
+            pst.setString(5, TelefonoDepa.getText().trim());
+            pst.setString(6, CorreoDepa.getText().trim());
+            pst.executeUpdate();
+            
+            CodigoDepa.setText("");
+            NombreDepa.setText("");
+            EncarDepa.setText("");
+            TelefonoDepa.setText("");
+            CorreoDepa.setText("");
+           
+        }
+        catch (Exception e)
+        {
+        JOptionPane.showMessageDialog(null, "Registro Departamento Exitoso.");
+        }
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        // Carlos Alfonso Montes carnet: 9959-19-10173
+        try {
+            String ID = Txt_Buscar.getText().trim();
+            
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/Departamentos", "root", "kingcobra123DA");
+            PreparedStatement pst = cn.prepareStatement("update departamento set codigo_departamento = ?, nombre_departamento = ?, encargado_departamento = ?, telefono_departamento = ?, correo_departamento = ? where ID = " + ID);
+
+            pst.setString(1, CodigoDepa.getText().trim());
+            pst.setString(2, NombreDepa.getText().trim());
+            pst.setString(3, EncarDepa.getText().trim());
+            pst.setString(4, TelefonoDepa.getText().trim());
+            pst.setString(5, CorreoDepa.getText().trim());
+            pst.executeUpdate();
+            
+        } catch (Exception e) 
+        { 
+        {
+        JOptionPane.showMessageDialog(null, "Modificacion al Registro Departamentos Exitosamente.");
+        }  
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
