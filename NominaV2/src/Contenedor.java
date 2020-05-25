@@ -2,6 +2,10 @@
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import Clases.Usuarios;
+import java.awt.Component;
+import javax.swing.JFrame;
+import javax.swing.UIManager;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -12,38 +16,52 @@ import Clases.Usuarios;
  *
  * @author TagoKG
  */
+
 public class Contenedor extends javax.swing.JFrame {
       Usuarios mod;
 private Nomina_Empleados nuevaVentana2;
 private Empleados nuevaVentana1;
 private Departamentos nuevaVentana3;
+private Puestos nuevaVentana4;
+private Concepto1 nuevaVentana5;
     /**Usuarios mod;
      * Creates new form Contenedor
      */
+
+
     public Contenedor() {
         initComponents();
         Toolkit toolkit = getToolkit();
         Dimension size = toolkit.getScreenSize();
         setLocation(size.width/2 - getWidth()/2,size.height/2 - getHeight()/2);
+         
     }
-        
+
+
 
   
     Contenedor(Usuarios mod) {
         initComponents();
         setLocationRelativeTo(null);
         this.mod = mod;
+       // JFrame.setDefaultLookAndFeelDecorated(true);
+      //  SubstanceLookAndFeel.setSkin("org.jvnet.substance.skin.MagmaSkin");
+                Contenedor ve= new Contenedor ();
+                ve.setVisible(true);
 
         if (mod.getIdTipo() == 1) {
             Menucatalogo.setVisible(true);
-              Menueditar.setVisible(false);
-        } else {
-            Menucatalogo.setVisible(false);
-           Menucatalogo.setVisible(false);
+           //   Menueditar.setVisible(true);
+             // MenuSalir.setVisible(true);
+       
+        //}
+         } else {
+            Menucatalogo.setVisible(true);
+           Menucatalogo.setVisible(true);
             
         }
         if (mod.getIdTipo() == 2) {
-            Menucatalogo.setVisible(false);
+            Menucatalogo.setVisible(true);
             Menucatalogo.setVisible(true);
         //} else {
           //  menuProveedores.setVisible(false);
@@ -55,7 +73,6 @@ private Departamentos nuevaVentana3;
         //} else {
           //  menuProveedores.setVisible(false);
            //menuProductos.setVisible(false);
-        //}
             }
     
     }
@@ -76,6 +93,8 @@ private Departamentos nuevaVentana3;
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
         Menueditar = new javax.swing.JMenu();
         MenuSalir = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
@@ -128,6 +147,22 @@ private Departamentos nuevaVentana3;
             }
         });
         Menucatalogo.add(jMenuItem1);
+
+        jMenuItem5.setText("Puestos");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
+        Menucatalogo.add(jMenuItem5);
+
+        jMenuItem6.setText("Concepto");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
+        Menucatalogo.add(jMenuItem6);
 
         jMenuBar1.add(Menucatalogo);
 
@@ -189,6 +224,17 @@ private Departamentos nuevaVentana3;
      jDesktopPane1.add (nuevaVentana3);
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        // TODO add your handling code here:
+        nuevaVentana4=new Puestos();
+     jDesktopPane1.add (nuevaVentana4);
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -199,12 +245,7 @@ private Departamentos nuevaVentana3;
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
+          UIManager.setLookAndFeel("com.jtattoo.plaf.luna.LunaLookAndFeel");
         } catch (ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(Contenedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
@@ -223,6 +264,10 @@ private Departamentos nuevaVentana3;
             }
         });
     }
+    
+    
+    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu MenuSalir;
@@ -234,5 +279,10 @@ private Departamentos nuevaVentana3;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
     // End of variables declaration//GEN-END:variables
 }
+
+
+  
