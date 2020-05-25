@@ -23,7 +23,7 @@ private Nomina_Empleados nuevaVentana2;
 private Empleados nuevaVentana1;
 private Departamentos nuevaVentana3;
 private Puestos nuevaVentana4;
-private Concepto1 nuevaVentana5;
+
     /**Usuarios mod;
      * Creates new form Contenedor
      */
