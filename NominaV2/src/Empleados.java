@@ -4,7 +4,16 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
+import Clases.Conexion;
 
+import java.util.logging.Level;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -60,6 +69,7 @@ public class Empleados extends javax.swing.JInternalFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
 
         setBorder(javax.swing.BorderFactory.createEtchedBorder());
         try {
@@ -229,6 +239,13 @@ public class Empleados extends javax.swing.JInternalFrame {
             }
         });
 
+        jButton5.setText("Reporte");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -245,7 +262,9 @@ public class Empleados extends javax.swing.JInternalFrame {
                         .addGap(159, 159, 159)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton2)))
+                        .addComponent(jButton2)
+                        .addGap(65, 65, 65)
+                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(97, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(188, 188, 188)
@@ -266,7 +285,8 @@ public class Empleados extends javax.swing.JInternalFrame {
                 .addGap(49, 49, 49)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(66, 66, 66)
@@ -275,7 +295,7 @@ public class Empleados extends javax.swing.JInternalFrame {
                             .addComponent(txt_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(123, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
                         .addComponent(jButton4)
                         .addGap(106, 106, 106))))
         );
@@ -392,12 +412,33 @@ public class Empleados extends javax.swing.JInternalFrame {
         frm.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        try{
+        Conexion con = new Conexion();
+        Connection conn = con.getConexion();
+         JasperReport reporte = null;
+         String path="src//Reportes//Empleados.jasper";
+         
+          
+                reporte = (JasperReport)  JRLoader.loadObjectFromFile(path);
+                JasperPrint jprint = JasperFillManager.fillReport(path, null, conn);
+                JasperViewer view = new JasperViewer(jprint, false);
+                view.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+                view.setVisible(true);
+            } catch (JRException ex) {
+                java.util.logging.Logger.getLogger(Empleados.class.getName()).log(Level.SEVERE, null, ex);
+            }
+       
+    }//GEN-LAST:event_jButton5ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

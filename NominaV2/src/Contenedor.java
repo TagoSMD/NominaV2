@@ -5,6 +5,18 @@ import Clases.Usuarios;
 import java.awt.Component;
 import javax.swing.JFrame;
 import javax.swing.UIManager;
+import Clases.Conexion;
+import app.Reporte;
+import java.sql.Connection;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -104,6 +116,7 @@ private Puestos nuevaVentana4;
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
+        jMenuItem9 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem8 = new javax.swing.JMenuItem();
 
@@ -204,6 +217,15 @@ private Puestos nuevaVentana4;
         jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/documentediting_editdocuments_text_documentedi_2820.png"))); // NOI18N
         jMenu3.setText("Editar");
         jMenu3.setFont(new java.awt.Font("Franklin Gothic Demi", 1, 18)); // NOI18N
+
+        jMenuItem9.setText("Reporte");
+        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem9ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem9);
+
         jMenuBar1.add(jMenu3);
 
         jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/1486504328-bullet-list-menu-lines-points-items-options_81334.png"))); // NOI18N
@@ -276,6 +298,26 @@ private Puestos nuevaVentana4;
         jDesktopPane1.add (nuevaVentana1);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
+    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+        // TODO add your handling code here:
+        
+         try {
+            Conexion con = new Conexion();
+        Connection conn = con.getConexion();
+         JasperReport reporte = null;
+         String path="src//Reportes//Empleados.jasper";
+            reporte = (JasperReport)  JRLoader.loadObjectFromFile(path);
+             JasperPrint jprint = JasperFillManager.fillReport(path, null, conn);
+                JasperViewer view = new JasperViewer(jprint, false);
+                view.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+                view.setVisible(true);
+        } catch (JRException ex) {
+            Logger.getLogger(Reporte.class.getName()).log(Level.SEVERE, null, ex);
+        }
+               
+         
+    }//GEN-LAST:event_jMenuItem9ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -330,6 +372,7 @@ private Puestos nuevaVentana4;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem jMenuItem9;
     // End of variables declaration//GEN-END:variables
 }
 
