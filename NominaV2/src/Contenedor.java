@@ -157,7 +157,7 @@ private Puestos nuevaVentana4;
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes2/fondo.png"))); // NOI18N
         jLabel1.setText("jLabel1");
-        jDesktopPane1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 800));
+        jDesktopPane1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 570));
 
         jMenuBar1.setBackground(new java.awt.Color(204, 255, 204));
         jMenuBar1.setForeground(new java.awt.Color(204, 255, 204));
@@ -254,9 +254,7 @@ private Puestos nuevaVentana4;
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 795, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
