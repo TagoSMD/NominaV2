@@ -66,6 +66,10 @@ public class Empleados extends javax.swing.JInternalFrame {
         jButton5 = new javax.swing.JButton();
 
         setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
         try {
             setSelected(true);
         } catch (java.beans.PropertyVetoException e1) {

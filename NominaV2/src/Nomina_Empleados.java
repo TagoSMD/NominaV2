@@ -71,6 +71,7 @@ public class Nomina_Empleados extends javax.swing.JInternalFrame {
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
+        setResizable(true);
         try {
             setSelected(true);
         } catch (java.beans.PropertyVetoException e1) {
