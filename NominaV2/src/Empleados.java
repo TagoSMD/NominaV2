@@ -7,13 +7,8 @@ import javax.swing.JOptionPane;
 import Clases.Conexion;
 
 import java.util.logging.Level;
-import net.sf.jasperreports.engine.JRException;
-import net.sf.jasperreports.engine.JasperFillManager;
-import net.sf.jasperreports.engine.JasperPrint;
 
-import net.sf.jasperreports.engine.JasperReport;
-import net.sf.jasperreports.engine.util.JRLoader;
-import net.sf.jasperreports.view.JasperViewer;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -414,22 +409,7 @@ public class Empleados extends javax.swing.JInternalFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        try{
-        Conexion con = new Conexion();
-        Connection conn = con.getConexion();
-         JasperReport reporte = null;
-         String path="src//Reportes//Empleados.jasper";
-         
-          
-                reporte = (JasperReport)  JRLoader.loadObjectFromFile(path);
-                JasperPrint jprint = JasperFillManager.fillReport(path, null, conn);
-                JasperViewer view = new JasperViewer(jprint, false);
-                view.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-                view.setVisible(true);
-            } catch (JRException ex) {
-                java.util.logging.Logger.getLogger(Empleados.class.getName()).log(Level.SEVERE, null, ex);
-            }
-       
+    
     }//GEN-LAST:event_jButton5ActionPerformed
 
 
