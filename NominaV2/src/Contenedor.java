@@ -23,12 +23,12 @@ import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
  */
 
 public class Contenedor extends javax.swing.JFrame {
-      Usuarios mod;
+Usuarios mod;
 private Nomina_Empleados nuevaVentana2;
 private Empleados nuevaVentana1;
 private Departamentos nuevaVentana3;
 private Puestos nuevaVentana4;
-
+private Concepto nuevaVentana6;
     /**Usuarios mod;
      * Creates new form Contenedor
      */
@@ -265,6 +265,8 @@ private Puestos nuevaVentana4;
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
         // TODO add your handling code here:
+        nuevaVentana6 =new Concepto();
+        jDesktopPane1.add (nuevaVentana6);
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
