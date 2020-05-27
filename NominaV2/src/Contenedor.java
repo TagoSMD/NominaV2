@@ -38,6 +38,7 @@ private Empleados nuevaVentana1;
 private Departamentos nuevaVentana3;
 private Puestos nuevaVentana4;
 
+
     /**Usuarios mod;
      * Creates new form Contenedor
      */

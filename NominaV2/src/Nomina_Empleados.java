@@ -426,11 +426,11 @@ int ICod=0;
     }//GEN-LAST:event_RegistroActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+      //Codigo que permite INGRESAR registros en la base de datos
             try{
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/nominae", "root", "kingcobra123DA");
             PreparedStatement pst = cn.prepareStatement("insert into nomina values(?,?,?,?,?,?,?,?,?,?,?)");
-            
+            ///* CREADO POR NAYRE
             pst.setString(1, "0");
             pst.setString(2, txt_nombreE.getText().trim());
             pst.setString(3, txt_Puesto.getText().trim());
@@ -454,7 +454,7 @@ int ICod=0;
             txt_Hextra.setText("");
             txt_Isr.setText("");
             txt_oDesc.setText("");
-           // label_status.setText("Registro exitoso.");
+          JOptionPane.showMessageDialog(null, "Registro de Empleado Exitosamente."); 
         }catch (Exception e){
             
         }
@@ -481,22 +481,21 @@ int ICod=0;
              txt_oDesc.setText("");
           
             
-            //label_status.setText("Registro eliminado.");
+            JOptionPane.showMessageDialog(null, "Registro Borrado Exitosamente.");
             
         } catch (Exception e) {
-        }        // TODO add your handling code here:
+        }        
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-                //Codigo que permite consultar registros en la base de datos
+    //**Codigo que permite consultar registros en la base de datos
         try{
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/nominae", "root", "kingcobra123DA");
             PreparedStatement pst = cn.prepareStatement("select * from nomina where ID = ?");
             pst.setString(1, txt_buscar.getText().trim());
             
             ResultSet rs = pst.executeQuery();
-            
+            //**CREADO POR NAYRE
             if(rs.next()){
           
                 txt_nombreE.setText(rs.getString("nombre_empleado"));
@@ -520,10 +519,10 @@ int ICod=0;
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        //Codigo que permite buscar registros en la base de datos
          try {
             String ID = txt_buscar.getText().trim();
-            
+            ///*creado por Nayre
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/nominae", "root", "");
             PreparedStatement pst = cn.prepareStatement("update nomina set nombre_empleado = ?, puesto_empleado = ?, sueldo_empleado = ?, bonificacion_empleado = ?, igss_empleado = ?, otros_empleado = ?, sueldoe_empleados = ?, horase_empleados = ?, isr_empleados = ? , descuentos_empleados = ?  where ID = " + ID);
 
@@ -539,7 +538,7 @@ int ICod=0;
             pst.setString(10, txt_oDesc.getText().trim());
             pst.executeUpdate();
             
-            //label_status.setText("Modificación exitosa.");
+            JOptionPane.showMessageDialog(null, "Modificacion registro de Empleado Exitosamente.");
             
         } catch (Exception e) {
         }
