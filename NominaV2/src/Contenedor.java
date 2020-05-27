@@ -1,4 +1,4 @@
-
+//Se importaron las oonexiones y clases 
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import Clases.Usuarios;
@@ -317,7 +317,7 @@ private Puestos nuevaVentana4;
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
-        // TODO add your handling code here:
+        // Conexion a  la claseNomina para que genere el reporte
         
          try {
             ConexionNomina con = new ConexionNomina();
@@ -337,7 +337,8 @@ private Puestos nuevaVentana4;
     }//GEN-LAST:event_jMenuItem9ActionPerformed
 
     private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
-        // TODO add your handling code here:
+        //  Conexion a  la claseLogin1 para que genere el reporte:
+       
              try {
             Conexion con = new Conexion();
         Connection conn = con.getConexion();
@@ -355,7 +356,7 @@ private Puestos nuevaVentana4;
     }//GEN-LAST:event_jMenuItem10ActionPerformed
 
     private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
-        // TODO add your handling code here:
+        // Conexion a  la claseEmpleados para que genere el reporte:
               try {
             ConexionEmpleados con = new ConexionEmpleados();
         Connection conn = con.getConexion();

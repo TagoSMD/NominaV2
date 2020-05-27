@@ -1,4 +1,5 @@
-
+//Conexion A la base de datos de Empleados para poder generar el reporte
+//Santiago Martinez Diaz 9959-19-13847
 package Clases;
 
 import com.mysql.jdbc.Connection;

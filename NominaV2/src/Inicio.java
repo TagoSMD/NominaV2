@@ -1,4 +1,4 @@
-
+//Santiago Martinez Diaz 9959-19-13847
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import javax.swing.UIManager;
