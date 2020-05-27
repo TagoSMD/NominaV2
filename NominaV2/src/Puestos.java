@@ -1,8 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -33,10 +33,12 @@ public class Puestos extends javax.swing.JInternalFrame {
         jLabel5 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
+        codpu = new javax.swing.JTextField();
+        nopu = new javax.swing.JTextField();
+        emp = new javax.swing.JTextField();
+        est = new javax.swing.JTextField();
+        search = new javax.swing.JTextField();
+        jButton3 = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 255));
@@ -76,6 +78,15 @@ public class Puestos extends javax.swing.JInternalFrame {
             }
         });
 
+        jButton3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(0, 51, 255));
+        jButton3.setText("Buscar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -94,16 +105,23 @@ public class Puestos extends javax.swing.JInternalFrame {
                             .addComponent(jLabel5))
                         .addGap(26, 26, 26)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField1)
-                            .addComponent(jTextField2)
-                            .addComponent(jTextField3)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)))
+                            .addComponent(codpu)
+                            .addComponent(nopu)
+                            .addComponent(emp)
+                            .addComponent(est, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(113, 113, 113)
                         .addComponent(jButton1)
                         .addGap(45, 45, 45)
                         .addComponent(jButton2)))
-                .addContainerGap(81, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(search, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(43, 43, 43))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButton3)
+                        .addGap(92, 92, 92))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -115,23 +133,30 @@ public class Puestos extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(codpu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(jLabel3))
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(nopu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(37, 37, 37)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
-                .addContainerGap(72, Short.MAX_VALUE))
+                    .addComponent(emp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(est, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(search, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(37, 37, 37)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton1)
+                            .addComponent(jButton2))
+                        .addContainerGap(76, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton3)
+                        .addGap(85, 85, 85))))
         );
 
         pack();
@@ -139,69 +164,95 @@ public class Puestos extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        // Carlos Alfonso Montes carnet: 9959-19-10173
+        // Carlos Alfonso Montes Tzunun Carnet: 9959-19-10173
        try{
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/Departamentos", "root", "kingcobra123DA");
             PreparedStatement pst = cn.prepareStatement("insert into departamento values(?,?,?,?,?,?)");
             
             pst.setString(1, "0");
-            pst.setString(2, CodigoDepa.getText().trim());
-            pst.setString(3, NombreDepa.getText().trim());
-            pst.setString(4, EncarDepa.getText().trim());
-            pst.setString(5, TelefonoDepa.getText().trim());
-            pst.setString(6, CorreoDepa.getText().trim());
+            pst.setString(2, codpu.getText().trim());
+            pst.setString(3, nopu.getText().trim());
+            pst.setString(4, emp.getText().trim());
+            pst.setString(5, est.getText().trim());
             pst.executeUpdate();
             
-            CodigoDepa.setText("");
-            NombreDepa.setText("");
-            EncarDepa.setText("");
-            TelefonoDepa.setText("");
-            CorreoDepa.setText("");
+            codpu.setText("");
+            nopu.setText("");
+            emp.setText("");
+            est.setText("");
+            
            
         }
         catch (Exception e)
         {
-        JOptionPane.showMessageDialog(null, "Registro Departamento Exitoso.");
+        JOptionPane.showMessageDialog(null, "Registro de Puesto Exitoso.");
         }
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        // Carlos Alfonso Montes carnet: 9959-19-10173
+        // Carlos Alfonso Montes Tzunun Carnet: 9959-19-10173
         try {
-            String ID = Txt_Buscar.getText().trim();
+            String ID = search.getText().trim();
             
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/Departamentos", "root", "kingcobra123DA");
             PreparedStatement pst = cn.prepareStatement("update departamento set codigo_departamento = ?, nombre_departamento = ?, encargado_departamento = ?, telefono_departamento = ?, correo_departamento = ? where ID = " + ID);
 
-            pst.setString(1, CodigoDepa.getText().trim());
-            pst.setString(2, NombreDepa.getText().trim());
-            pst.setString(3, EncarDepa.getText().trim());
-            pst.setString(4, TelefonoDepa.getText().trim());
-            pst.setString(5, CorreoDepa.getText().trim());
+            pst.setString(1, codpu.getText().trim());
+            pst.setString(2, nopu.getText().trim());
+            pst.setString(3, emp.getText().trim());
+            pst.setString(4, est.getText().trim());
             pst.executeUpdate();
             
         } catch (Exception e) 
         { 
         {
-        JOptionPane.showMessageDialog(null, "Modificacion al Registro Departamentos Exitosamente.");
+        JOptionPane.showMessageDialog(null, "Modificacion de Puesto Exitosamente.");
         }  
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        // Carlos Alfonso Montes Tzunun Carnet: 9959-19-10173
+        try{
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/Departamentos", "root", "kingcobra123DA");
+            PreparedStatement pst = cn.prepareStatement("select * from departamento where ID = ?");
+            pst.setString(1, search.getText().trim());
+            
+            ResultSet rs = pst.executeQuery();
+            
+            if(rs.next()){
+          
+                codpu.setText(rs.getString("codigo_departamento"));
+                nopu.setText(rs.getString("nombre_departamento"));
+                emp.setText(rs.getString("encargado_departamento"));
+                est.setText(rs.getString("telefono_departamento"));
+                
+            } else {
+                JOptionPane.showMessageDialog(null, "Puesto No Registrado.");
+            }
+            
+        }catch (Exception e){
+            
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField codpu;
+    private javax.swing.JTextField emp;
+    private javax.swing.JTextField est;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField nopu;
+    private javax.swing.JTextField search;
     // End of variables declaration//GEN-END:variables
 }
