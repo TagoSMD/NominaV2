@@ -6,17 +6,10 @@ import java.awt.Component;
 import javax.swing.JFrame;
 import javax.swing.UIManager;
 import Clases.Conexion;
-import app.Reporte;
 import java.sql.Connection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
-import net.sf.jasperreports.engine.JRException;
-import net.sf.jasperreports.engine.JasperFillManager;
-import net.sf.jasperreports.engine.JasperPrint;
-import net.sf.jasperreports.engine.JasperReport;
-import net.sf.jasperreports.engine.util.JRLoader;
-import net.sf.jasperreports.view.JasperViewer;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -30,12 +23,12 @@ import net.sf.jasperreports.view.JasperViewer;
  */
 
 public class Contenedor extends javax.swing.JFrame {
-      Usuarios mod;
+Usuarios mod;
 private Nomina_Empleados nuevaVentana2;
 private Empleados nuevaVentana1;
 private Departamentos nuevaVentana3;
 private Puestos nuevaVentana4;
-
+private Concepto nuevaVentana6;
     /**Usuarios mod;
      * Creates new form Contenedor
      */
@@ -272,6 +265,8 @@ private Puestos nuevaVentana4;
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
         // TODO add your handling code here:
+        nuevaVentana6 =new Concepto();
+        jDesktopPane1.add (nuevaVentana6);
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
@@ -299,21 +294,7 @@ private Puestos nuevaVentana4;
     private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
         // TODO add your handling code here:
         
-         try {
-            Conexion con = new Conexion();
-        Connection conn = con.getConexion();
-         JasperReport reporte = null;
-         String path="src//Reportes//Empleados.jasper";
-            reporte = (JasperReport)  JRLoader.loadObjectFromFile(path);
-             JasperPrint jprint = JasperFillManager.fillReport(path, null, conn);
-                JasperViewer view = new JasperViewer(jprint, false);
-                view.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-                view.setVisible(true);
-        } catch (JRException ex) {
-            Logger.getLogger(Reporte.class.getName()).log(Level.SEVERE, null, ex);
-        }
-               
-         
+ 
     }//GEN-LAST:event_jMenuItem9ActionPerformed
 
     /**
