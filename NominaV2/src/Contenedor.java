@@ -37,6 +37,8 @@ private Nomina_Empleados nuevaVentana2;
 private Empleados nuevaVentana1;
 private Departamentos nuevaVentana3;
 private Puestos nuevaVentana4;
+private Concepto nuevaVentana5;
+
 
     /**Usuarios mod;
      * Creates new form Contenedor
@@ -119,8 +121,6 @@ private Puestos nuevaVentana4;
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem9 = new javax.swing.JMenuItem();
-        jMenuItem10 = new javax.swing.JMenuItem();
-        jMenuItem11 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem8 = new javax.swing.JMenuItem();
 
@@ -200,6 +200,8 @@ private Puestos nuevaVentana4;
         });
         jMenu2.add(jMenuItem4);
 
+        jMenuItem5.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 18)); // NOI18N
+        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/post-it-icon_34380.png"))); // NOI18N
         jMenuItem5.setText("Puestos");
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -208,6 +210,8 @@ private Puestos nuevaVentana4;
         });
         jMenu2.add(jMenuItem5);
 
+        jMenuItem6.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 18)); // NOI18N
+        jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Bulb_concept_creativity_idea_imagination_genius_light_icon-icons.com_55336.png"))); // NOI18N
         jMenuItem6.setText("Concepto");
         jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -219,9 +223,11 @@ private Puestos nuevaVentana4;
         jMenuBar1.add(jMenu2);
 
         jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/documentediting_editdocuments_text_documentedi_2820.png"))); // NOI18N
-        jMenu3.setText("Editar");
+        jMenu3.setText("Reporte");
         jMenu3.setFont(new java.awt.Font("Franklin Gothic Demi", 1, 18)); // NOI18N
 
+        jMenuItem9.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 18)); // NOI18N
+        jMenuItem9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/business-color_money-time_icon-icons.com_53444.png"))); // NOI18N
         jMenuItem9.setText("Nomina");
         jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -229,22 +235,6 @@ private Puestos nuevaVentana4;
             }
         });
         jMenu3.add(jMenuItem9);
-
-        jMenuItem10.setText("Usuarios");
-        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem10ActionPerformed(evt);
-            }
-        });
-        jMenu3.add(jMenuItem10);
-
-        jMenuItem11.setText("Empleados");
-        jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem11ActionPerformed(evt);
-            }
-        });
-        jMenu3.add(jMenuItem11);
 
         jMenuBar1.add(jMenu3);
 
@@ -292,6 +282,8 @@ private Puestos nuevaVentana4;
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
         // TODO add your handling code here:
+          nuevaVentana5=new Concepto();
+        jDesktopPane1.add (nuevaVentana5);
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
@@ -335,43 +327,6 @@ private Puestos nuevaVentana4;
                
          
     }//GEN-LAST:event_jMenuItem9ActionPerformed
-
-    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
-        //  Conexion a  la claseLogin1 para que genere el reporte:
-       
-             try {
-            Conexion con = new Conexion();
-        Connection conn = con.getConexion();
-         JasperReport reporte = null;
-         String path="src//Reportes//Login1.jasper";
-            reporte = (JasperReport)  JRLoader.loadObjectFromFile(path);
-             JasperPrint jprint = JasperFillManager.fillReport(path, null, conn);
-                JasperViewer view = new JasperViewer(jprint, false);
-                view.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-                view.setVisible(true);
-        } catch (JRException ex) {
-            Logger.getLogger(Reporte.class.getName()).log(Level.SEVERE, null, ex);
-        }
-               
-    }//GEN-LAST:event_jMenuItem10ActionPerformed
-
-    private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
-        // Conexion a  la claseEmpleados para que genere el reporte:
-              try {
-            ConexionEmpleados con = new ConexionEmpleados();
-        Connection conn = con.getConexion();
-         JasperReport reporte = null;
-         String path="src//Reportes//Empleados.jasper";
-            reporte = (JasperReport)  JRLoader.loadObjectFromFile(path);
-             JasperPrint jprint = JasperFillManager.fillReport(path, null, conn);
-                JasperViewer view = new JasperViewer(jprint, false);
-                view.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-                view.setVisible(true);
-        } catch (JRException ex) {
-            Logger.getLogger(Reporte.class.getName()).log(Level.SEVERE, null, ex);
-        }
-               
-    }//GEN-LAST:event_jMenuItem11ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -419,8 +374,6 @@ private Puestos nuevaVentana4;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem10;
-    private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem13;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;

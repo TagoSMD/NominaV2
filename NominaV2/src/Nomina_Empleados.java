@@ -229,6 +229,7 @@ public class Nomina_Empleados extends javax.swing.JInternalFrame {
 
         Registro.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         Registro.setForeground(new java.awt.Color(0, 0, 255));
+        Registro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Save-icon.png"))); // NOI18N
         Registro.setText("REGISTRO");
         Registro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -266,6 +267,9 @@ public class Nomina_Empleados extends javax.swing.JInternalFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        jButton1.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(0, 0, 153));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Save-icon.png"))); // NOI18N
         jButton1.setText("Añadir");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -273,6 +277,9 @@ public class Nomina_Empleados extends javax.swing.JInternalFrame {
             }
         });
 
+        jButton2.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 14)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(0, 0, 153));
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/update icon.png"))); // NOI18N
         jButton2.setText("Modificar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -280,6 +287,9 @@ public class Nomina_Empleados extends javax.swing.JInternalFrame {
             }
         });
 
+        jButton3.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 14)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(0, 0, 153));
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/erase-128.png"))); // NOI18N
         jButton3.setText("Eliminar");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -287,6 +297,9 @@ public class Nomina_Empleados extends javax.swing.JInternalFrame {
             }
         });
 
+        jButton4.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 14)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(0, 0, 153));
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/xmag_search_find_export_locate_5984.png"))); // NOI18N
         jButton4.setText("Buscar");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -426,11 +439,11 @@ int ICod=0;
     }//GEN-LAST:event_RegistroActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+      //Codigo que permite INGRESAR registros en la base de datos
             try{
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/nominae", "root", "kingcobra123DA");
             PreparedStatement pst = cn.prepareStatement("insert into nomina values(?,?,?,?,?,?,?,?,?,?,?)");
-            
+            ///* CREADO POR NAYRE
             pst.setString(1, "0");
             pst.setString(2, txt_nombreE.getText().trim());
             pst.setString(3, txt_Puesto.getText().trim());
@@ -454,7 +467,7 @@ int ICod=0;
             txt_Hextra.setText("");
             txt_Isr.setText("");
             txt_oDesc.setText("");
-           // label_status.setText("Registro exitoso.");
+          JOptionPane.showMessageDialog(null, "Registro de Empleado Exitosamente."); 
         }catch (Exception e){
             
         }
@@ -481,22 +494,21 @@ int ICod=0;
              txt_oDesc.setText("");
           
             
-            //label_status.setText("Registro eliminado.");
+            JOptionPane.showMessageDialog(null, "Registro Borrado Exitosamente.");
             
         } catch (Exception e) {
-        }        // TODO add your handling code here:
+        }        
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-                //Codigo que permite consultar registros en la base de datos
+    //**Codigo que permite consultar registros en la base de datos
         try{
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/nominae", "root", "kingcobra123DA");
             PreparedStatement pst = cn.prepareStatement("select * from nomina where ID = ?");
             pst.setString(1, txt_buscar.getText().trim());
             
             ResultSet rs = pst.executeQuery();
-            
+            //**CREADO POR NAYRE
             if(rs.next()){
           
                 txt_nombreE.setText(rs.getString("nombre_empleado"));
@@ -520,10 +532,10 @@ int ICod=0;
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        //Codigo que permite buscar registros en la base de datos
          try {
             String ID = txt_buscar.getText().trim();
-            
+            ///*creado por Nayre
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/nominae", "root", "");
             PreparedStatement pst = cn.prepareStatement("update nomina set nombre_empleado = ?, puesto_empleado = ?, sueldo_empleado = ?, bonificacion_empleado = ?, igss_empleado = ?, otros_empleado = ?, sueldoe_empleados = ?, horase_empleados = ?, isr_empleados = ? , descuentos_empleados = ?  where ID = " + ID);
 
@@ -539,7 +551,7 @@ int ICod=0;
             pst.setString(10, txt_oDesc.getText().trim());
             pst.executeUpdate();
             
-            //label_status.setText("Modificación exitosa.");
+            JOptionPane.showMessageDialog(null, "Modificacion registro de Empleado Exitosamente.");
             
         } catch (Exception e) {
         }
