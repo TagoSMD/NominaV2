@@ -146,9 +146,14 @@ public class Puestos extends javax.swing.JInternalFrame {
             }
         });
 
+<<<<<<< HEAD
+        jButton3.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(0, 0, 153));
+=======
         jButton3.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 14)); // NOI18N
         jButton3.setForeground(new java.awt.Color(0, 0, 204));
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/erase-128.png"))); // NOI18N
+>>>>>>> origin/Fix2
         jButton3.setText("Eliminar");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -241,6 +246,9 @@ public class Puestos extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(25, 25, 25)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+<<<<<<< HEAD
+                .addContainerGap(125, Short.MAX_VALUE))
+=======
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(53, 53, 53)
@@ -249,11 +257,12 @@ public class Puestos extends javax.swing.JInternalFrame {
                         .addGap(133, 133, 133)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(141, Short.MAX_VALUE))
+>>>>>>> origin/Fix2
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+///*** se creo el codigo e interface por Nayre de Leon 
     private void añadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_añadirActionPerformed
         //Codigo que permite Ingresar registros en la base de datos
         try{
@@ -261,8 +270,8 @@ public class Puestos extends javax.swing.JInternalFrame {
             PreparedStatement pst = cn.prepareStatement("insert into puesto values(?,?,?,?,?)");
 
             pst.setString(1, "0");      //* Creado por Nayre
-            pst.setString(2, txtCodigoPuesto.getText().trim()); ///* se ingresa a la base de datos el codigo de puesto
-            pst.setString(3, txtNombrePuesto.getText().trim()); ///* se ingresa a la base de datos el Nombre del Puesto   
+            pst.setString(2, txtCodigoPuesto.getText().trim()); ///* se ingresa datos a la base de datos el codigo de puesto
+            pst.setString(3, txtNombrePuesto.getText().trim()); ///* se ingresa datos a la base de datos el Nombre del Puesto   
             pst.setString(4, txtNombreEmpleado.getText().trim()); ///*
             pst.setString(5, txtEstatusPuesto.getText().trim()); ///*
             pst.executeUpdate();
@@ -286,8 +295,8 @@ public class Puestos extends javax.swing.JInternalFrame {
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/puestos1", "root", "");
             PreparedStatement pst = cn.prepareStatement("update puesto set codigo_puesto = ?, nombre_puesto = ?, nombre_empleado = ?, estatus_puestos = ? where ID = " + ID);
             //* Creado por Nayre
-            pst.setString(1, txtCodigoPuesto.getText().trim()); ///* se modifica a la base de datos el codigo de puesto
-            pst.setString(2, txtNombrePuesto.getText().trim()); ///* se modifica a la base de datos el nombre del puesto
+            pst.setString(1, txtCodigoPuesto.getText().trim()); ///* se modificar a la base de datos el codigo de puesto
+            pst.setString(2, txtNombrePuesto.getText().trim()); ///* se modificar a la base de datos el nombre del puesto
             pst.setString(3, txtNombreEmpleado.getText().trim()); ///*
             pst.setString(4, txtEstatusPuesto.getText().trim()); ///*
             pst.executeUpdate();
@@ -311,12 +320,12 @@ public class Puestos extends javax.swing.JInternalFrame {
 
             if(rs.next()){
 
-                txtCodigoPuesto.setText(rs.getString("codigo_concepto")); //** se modifica a la base de datos el codigo de puesto
-                txtNombrePuesto.setText(rs.getString("nombre_concepto")); //** se modifica a la base de datos el nombre del puesto
+                txtCodigoPuesto.setText(rs.getString("codigo_concepto")); //** se consulta  a la base de datos el codigo de puesto
+                txtNombrePuesto.setText(rs.getString("nombre_concepto")); //** se consulta a la base de datos el nombre del puesto
                 txtNombreEmpleado.setText(rs.getString("efecto_concepto"));
                 txtEstatusPuesto.setText(rs.getString("efecto_concepto"));
             } else {
-                JOptionPane.showMessageDialog(null, "Concepto No Registrado.");
+                JOptionPane.showMessageDialog(null, "Puesto No Registrado.");
             }
 
         }catch (Exception e){
@@ -339,7 +348,7 @@ public class Puestos extends javax.swing.JInternalFrame {
             txtEstatusPuesto.setText("");
            
 
-            JOptionPane.showMessageDialog(null, "Registro Eliminado.");
+            JOptionPane.showMessageDialog(null, "Borro los Registros de puestos.");
         } catch (Exception e) {
         }        
     }//GEN-LAST:event_jButton3ActionPerformed

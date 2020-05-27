@@ -274,7 +274,11 @@ public class Empleados extends javax.swing.JInternalFrame {
 
             },
             new String [] {
+<<<<<<< HEAD
+                "ID", "Codigo", "Nombre", "Apellido", "Telefono", "Correo", "Direccion", "DPI", "Estado", "Sueldo", "Cargo"
+=======
                 "ID", "Codigo", "Nombre", "Apellido", "Telefono", "Correo", "Dirreccion", "Dpi", "Estado", "Sueldo", "Cargo"
+>>>>>>> origin/Fix2
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -316,12 +320,17 @@ public class Empleados extends javax.swing.JInternalFrame {
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(81, 81, 81)
+<<<<<<< HEAD
+                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(105, Short.MAX_VALUE))
+=======
                         .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(98, Short.MAX_VALUE))
+>>>>>>> origin/Fix2
         );
 
         pack();
@@ -330,7 +339,7 @@ public class Empleados extends javax.swing.JInternalFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
          try{
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/empleados", "root", "kingcobra123DA");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/empleados", "root", "");
             PreparedStatement pst = cn.prepareStatement("insert into empleado values(?,?,?,?,?,?,?,?,?,?,?)");
             
            pst.setString(1, "0");
@@ -366,7 +375,7 @@ public class Empleados extends javax.swing.JInternalFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
          try{
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/empleados", "root", "kingcobra123DA");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/empleados", "root", "");
             PreparedStatement pst = cn.prepareStatement("select * from empleado where ID = ?");
             pst.setString(1, txt_buscar.getText().trim());
 
@@ -396,7 +405,7 @@ public class Empleados extends javax.swing.JInternalFrame {
           try {
             String ID = txt_buscar.getText().trim();
 
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/empleados", "root", "kingcobra123DA");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/empleados", "root", "");
             PreparedStatement pst = cn.prepareStatement("update empleado set codigo_empleado = ?,nombre_empleado = ?,apellido_empleado = ?,telefono_empleado = ?,correo_empleado = ?,dirreccion_empleado = ?,dpi_empleado = ?,estado_empleado = ?,sueldo_empleado = ?,cargo_empleado = ? where ID = " + ID);
     
             pst.setString(1, txtCodigo.getText().trim());
@@ -433,7 +442,7 @@ public class Empleados extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
 
         try{
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/empleados", "root", "kingcobra123DA");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/empleados", "root", "");
 
             PreparedStatement ps=cn.prepareStatement("select * from empleado");
             ResultSet rs=ps.executeQuery();

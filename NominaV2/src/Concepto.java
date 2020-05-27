@@ -241,17 +241,17 @@ public class Concepto extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+///*** se creo el codigo e interface por Nayre de Leon 
     private void añadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_añadirActionPerformed
                 //Codigo que permite Ingresar registros en la base de datos
-
+                    //* Creado por Nayre
         try{
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/conceptos1", "root", "");
             PreparedStatement pst = cn.prepareStatement("insert into concepto values(?,?,?,?)");
 
             pst.setString(1, "0");
-            pst.setString(2, txtCodigoConcep.getText().trim());
-            pst.setString(3, txtNombreConcep.getText().trim());
+            pst.setString(2, txtCodigoConcep.getText().trim());  ///* se ingresa a la base de datos Codigo Concepto
+            pst.setString(3, txtNombreConcep.getText().trim());  ///* se ingresa a la base de datos Nombre de Concepto
             pst.setString(4, txtEfectoConcep.getText().trim());
             pst.executeUpdate();
 
@@ -267,15 +267,15 @@ public class Concepto extends javax.swing.JInternalFrame {
 
     private void modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarActionPerformed
                //Codigo que permite modificar registros en la base de datos
-
+               //* Creado por Nayre
         try {
             String ID = Txt_Buscar.getText().trim();
 
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/Conceptos1", "root", "");
             PreparedStatement pst = cn.prepareStatement("update concepto set codigo_concepto = ?, nombre_concepto = ?, efecto_concepto = ? where ID = " + ID);
 
-            pst.setString(1, txtCodigoConcep.getText().trim());
-            pst.setString(2, txtNombreConcep.getText().trim());
+            pst.setString(1, txtCodigoConcep.getText().trim()); ///* se ingresa a la base de datos Nombre de Concepto
+            pst.setString(2, txtNombreConcep.getText().trim()); ///* se ingresa a la base de datos Nombre de Concepto
             pst.setString(3, txtEfectoConcep.getText().trim());
             pst.executeUpdate();
 
@@ -297,9 +297,9 @@ public class Concepto extends javax.swing.JInternalFrame {
             ResultSet rs = pst.executeQuery();
 
             if(rs.next()){
-
-                txtCodigoConcep.setText(rs.getString("codigo_concepto"));
-                txtNombreConcep.setText(rs.getString("nombre_concepto"));
+                //* Creado por Nayre
+                txtCodigoConcep.setText(rs.getString("codigo_concepto"));  ///* se buscan los registros en la base de datos codigo de Concepto
+                txtNombreConcep.setText(rs.getString("nombre_concepto")); ///* se buscan los registros en la base de datos Nombre de Concepto
                 txtEfectoConcep.setText(rs.getString("efecto_concepto"));
             } else {
                 JOptionPane.showMessageDialog(null, "Concepto No Registrado.");
@@ -315,12 +315,12 @@ public class Concepto extends javax.swing.JInternalFrame {
         try {
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/Conceptos1", "root", "");
             PreparedStatement pst = cn.prepareStatement("delete from concepto where ID = ?");
-
+            //* Creado por Nayre
             pst.setString(1, Txt_Buscar.getText().trim());
             pst.executeUpdate();
 
-            txtCodigoConcep.setText("");
-            txtNombreConcep.setText("");
+            txtCodigoConcep.setText("");   ///* se borran los registros a la base de datos Codigo de Concepto
+            txtNombreConcep.setText("");   ///* se borran los registros  a la base de datos Nombre de Concepto
             txtEfectoConcep.setText("");
             
             JOptionPane.showMessageDialog(null, "Registro Eliminado.");
