@@ -137,7 +137,7 @@ public class Reporte extends javax.swing.JFrame {
             Conexion con = new Conexion();
         Connection conn = con.getConexion();
          JasperReport reporte = null;
-         String pathz="src//Reportes//Login.jasper";
+         String pathz="src//Reportes//Login1.jasper";
             reporte = (JasperReport)  JRLoader.loadObjectFromFile(pathz);
              JasperPrint jprint = JasperFillManager.fillReport(pathz, null, conn);
                 JasperViewer view = new JasperViewer(jprint, false);
