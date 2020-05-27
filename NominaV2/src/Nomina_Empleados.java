@@ -61,11 +61,12 @@ public class Nomina_Empleados extends javax.swing.JInternalFrame {
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblDatos = new javax.swing.JTable();
+        jPanel4 = new javax.swing.JPanel();
+        jButton4 = new javax.swing.JButton();
+        txt_buscar = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        txt_buscar = new javax.swing.JTextField();
 
         setClosable(true);
         setIconifiable(true);
@@ -228,7 +229,7 @@ public class Nomina_Empleados extends javax.swing.JInternalFrame {
         );
 
         Registro.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        Registro.setForeground(new java.awt.Color(0, 0, 255));
+        Registro.setForeground(new java.awt.Color(0, 0, 153));
         Registro.setText("REGISTRO");
         Registro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -266,6 +267,17 @@ public class Nomina_Empleados extends javax.swing.JInternalFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        jButton4.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(0, 0, 153));
+        jButton4.setText("Buscar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        jButton1.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(0, 0, 153));
         jButton1.setText("Añadir");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -273,6 +285,8 @@ public class Nomina_Empleados extends javax.swing.JInternalFrame {
             }
         });
 
+        jButton2.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(0, 0, 153));
         jButton2.setText("Modificar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -280,6 +294,8 @@ public class Nomina_Empleados extends javax.swing.JInternalFrame {
             }
         });
 
+        jButton3.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(0, 0, 153));
         jButton3.setText("Eliminar");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -287,12 +303,36 @@ public class Nomina_Empleados extends javax.swing.JInternalFrame {
             }
         });
 
-        jButton4.setText("Buscar");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15)
+                .addComponent(txt_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(54, 54, 54))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButton1)
+                .addGap(18, 18, 18)
+                .addComponent(jButton2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton3)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton4)
+                    .addComponent(txt_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -304,57 +344,40 @@ public class Nomina_Empleados extends javax.swing.JInternalFrame {
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(38, 38, 38)
-                                .addComponent(Registro))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(105, 105, 105)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(15, 15, 15)
-                                .addComponent(txt_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Registro)
+                            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(5, 5, 5)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(66, 66, 66)
-                        .addComponent(Registro)
-                        .addGap(28, 28, 28))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addComponent(Registro)
+                        .addGap(9, 9, 9)))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(jButton1)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton3)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton4)
-                            .addComponent(txt_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(20, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(19, 19, 19)))
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-int ICod=0;
+///*** se creo el codigo e interface por Nayre de Leon 
+    int ICod=0;
     private void RegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistroActionPerformed
  /////////// SE AGREGA EL DECIMAL FORMAT PARA DECIMALES 
  DecimalFormat SueldoLiquid = new DecimalFormat("0.0");
@@ -372,7 +395,7 @@ int ICod=0;
  HoraEx=Integer.parseInt(txt_Hextra.getText());
  OtrosIng=Integer.parseInt(txt_oIngre.getText());
  OtrosGastos=Integer.parseInt(txt_oDesc.getText());
-            
+            ///*creado por Nayre
  //// HEx VARIABLE QUE SE UTILIZA POR LA HORAS TRABAJADAS EXTRAS DEL EMPLEADO
  HEx=(float) (1.5*HoraEx+SuelExtra); ///se le agrega como suma a la hora estra el sueldo extra
  ////////////**** AQUI EMPIEZA LOS CICLOS DE IF Y ELSE IF PARA EL SALARIO BRUTO PARA NOMINA EMPLEADO
@@ -400,7 +423,7 @@ int ICod=0;
             
  float TSuelLiquido=0;
  TSuelLiquido=SalarioBruto-TotDesc;
- ///////***** DECLARACION DE LA TABLA DE EMPLEADO EN LA PLANILLA 
+ ///////***** DECLARACION DE LA TABLA DE EMPLEADO EN LA PLANILLA ////** creado por Nayre
  Object[] fila = new Object[13];
  DefaultTableModel modelo = (DefaultTableModel) tblDatos.getModel();
  ICod++;
@@ -428,12 +451,12 @@ int ICod=0;
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
       //Codigo que permite INGRESAR registros en la base de datos
             try{
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/nominae", "root", "kingcobra123DA");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/nominae", "root", "");
             PreparedStatement pst = cn.prepareStatement("insert into nomina values(?,?,?,?,?,?,?,?,?,?,?)");
             ///* CREADO POR NAYRE
             pst.setString(1, "0");
-            pst.setString(2, txt_nombreE.getText().trim());
-            pst.setString(3, txt_Puesto.getText().trim());
+            pst.setString(2, txt_nombreE.getText().trim());     ///*** se ingresan datos a la base de datos para guardarlos
+            pst.setString(3, txt_Puesto.getText().trim());      
              pst.setString(4, txt_Sueldo.getText().trim());
              pst.setString(5, txt_Bonif.getText().trim());
             pst.setString(6, txt_Igss.getText().trim());
@@ -444,7 +467,7 @@ int ICod=0;
              pst.setString(11, txt_oDesc.getText().trim());
             pst.executeUpdate();
             
-            txt_nombreE.setText("");
+            txt_nombreE.setText("");            //** limpia los jText para un nuevo ingreso 
             txt_Puesto.setText("");
             txt_Sueldo.setText("");
             txt_Bonif.setText("");
@@ -468,8 +491,8 @@ int ICod=0;
             
             pst.setString(1, txt_buscar.getText().trim());
             pst.executeUpdate();
-            
-            txt_nombreE.setText("");
+            ///* CREADO POR NAYRE
+            txt_nombreE.setText(""); ///*** se borran los datos ingresados a la base de datos 
             txt_Puesto.setText("");
             txt_Sueldo.setText("");
              txt_Bonif.setText("");
@@ -490,7 +513,7 @@ int ICod=0;
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
     //**Codigo que permite consultar registros en la base de datos
         try{
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/nominae", "root", "kingcobra123DA");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/nominae", "root", "");
             PreparedStatement pst = cn.prepareStatement("select * from nomina where ID = ?");
             pst.setString(1, txt_buscar.getText().trim());
             
@@ -498,7 +521,7 @@ int ICod=0;
             //**CREADO POR NAYRE
             if(rs.next()){
           
-                txt_nombreE.setText(rs.getString("nombre_empleado"));
+                txt_nombreE.setText(rs.getString("nombre_empleado"));   ///*** se consultan los datos ingresados en la base de datos 
                 txt_Puesto.setText(rs.getString("puesto_empleado"));
                 txt_Sueldo.setText(rs.getString("sueldo_empleado"));
                 txt_Bonif.setText(rs.getString("bonificacion_empleado"));
@@ -519,14 +542,14 @@ int ICod=0;
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        //Codigo que permite buscar registros en la base de datos
+        //Codigo que permite modificar registros en la base de datos
          try {
             String ID = txt_buscar.getText().trim();
             ///*creado por Nayre
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/nominae", "root", "");
             PreparedStatement pst = cn.prepareStatement("update nomina set nombre_empleado = ?, puesto_empleado = ?, sueldo_empleado = ?, bonificacion_empleado = ?, igss_empleado = ?, otros_empleado = ?, sueldoe_empleados = ?, horase_empleados = ?, isr_empleados = ? , descuentos_empleados = ?  where ID = " + ID);
 
-            pst.setString(1, txt_nombreE.getText().trim());
+            pst.setString(1, txt_nombreE.getText().trim());    ////** se modifican los registros ingresados a la base de datos 
             pst.setString(2, txt_Puesto.getText().trim());
             pst.setString(3, txt_Sueldo.getText().trim());
             pst.setString(4, txt_Bonif.getText().trim());
@@ -564,6 +587,7 @@ int ICod=0;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblDatos;
     private javax.swing.JTextField txt_Bonif;

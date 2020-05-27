@@ -12,7 +12,7 @@ public class ConexionEmpleados {
     
     private final String base = "empleados";
     private final String user = "root";
-    private final String password = "kingcobra123DA";
+    private final String password = "";
     private final String url = "jdbc:mysql://localhost/" + base;
     private Connection con = null;
     
