@@ -6,6 +6,8 @@ import java.awt.Component;
 import javax.swing.JFrame;
 import javax.swing.UIManager;
 import Clases.Conexion;
+import Clases.ConexionNomina;
+import Clases.ConexionEmpleados;
 import app.Reporte;
 import java.sql.Connection;
 import java.util.logging.Level;
@@ -117,6 +119,8 @@ private Puestos nuevaVentana4;
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem9 = new javax.swing.JMenuItem();
+        jMenuItem10 = new javax.swing.JMenuItem();
+        jMenuItem11 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem8 = new javax.swing.JMenuItem();
 
@@ -218,13 +222,29 @@ private Puestos nuevaVentana4;
         jMenu3.setText("Editar");
         jMenu3.setFont(new java.awt.Font("Franklin Gothic Demi", 1, 18)); // NOI18N
 
-        jMenuItem9.setText("Reporte");
+        jMenuItem9.setText("Nomina");
         jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem9ActionPerformed(evt);
             }
         });
         jMenu3.add(jMenuItem9);
+
+        jMenuItem10.setText("Usuarios");
+        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem10ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem10);
+
+        jMenuItem11.setText("Empleados");
+        jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem11ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem11);
 
         jMenuBar1.add(jMenu3);
 
@@ -300,7 +320,44 @@ private Puestos nuevaVentana4;
         // TODO add your handling code here:
         
          try {
+            ConexionNomina con = new ConexionNomina();
+        Connection conn = con.getConexion();
+         JasperReport reporte = null;
+         String path="src//Reportes//Nomina.jasper";
+            reporte = (JasperReport)  JRLoader.loadObjectFromFile(path);
+             JasperPrint jprint = JasperFillManager.fillReport(path, null, conn);
+                JasperViewer view = new JasperViewer(jprint, false);
+                view.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+                view.setVisible(true);
+        } catch (JRException ex) {
+            Logger.getLogger(Reporte.class.getName()).log(Level.SEVERE, null, ex);
+        }
+               
+         
+    }//GEN-LAST:event_jMenuItem9ActionPerformed
+
+    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
+        // TODO add your handling code here:
+             try {
             Conexion con = new Conexion();
+        Connection conn = con.getConexion();
+         JasperReport reporte = null;
+         String path="src//Reportes//Login1.jasper";
+            reporte = (JasperReport)  JRLoader.loadObjectFromFile(path);
+             JasperPrint jprint = JasperFillManager.fillReport(path, null, conn);
+                JasperViewer view = new JasperViewer(jprint, false);
+                view.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+                view.setVisible(true);
+        } catch (JRException ex) {
+            Logger.getLogger(Reporte.class.getName()).log(Level.SEVERE, null, ex);
+        }
+               
+    }//GEN-LAST:event_jMenuItem10ActionPerformed
+
+    private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
+        // TODO add your handling code here:
+              try {
+            ConexionEmpleados con = new ConexionEmpleados();
         Connection conn = con.getConexion();
          JasperReport reporte = null;
          String path="src//Reportes//Empleados.jasper";
@@ -313,8 +370,7 @@ private Puestos nuevaVentana4;
             Logger.getLogger(Reporte.class.getName()).log(Level.SEVERE, null, ex);
         }
                
-         
-    }//GEN-LAST:event_jMenuItem9ActionPerformed
+    }//GEN-LAST:event_jMenuItem11ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -362,6 +418,8 @@ private Puestos nuevaVentana4;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem10;
+    private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem13;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;

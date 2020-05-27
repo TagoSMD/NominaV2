@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Nomina" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8de149b8-aafc-4236-8cb7-1ef7b6f1b44f">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     nomina.`ID` AS nomina_ID,
+     nomina.`nombre_empleado` AS nomina_nombre_empleado,
+     nomina.`puesto_empleado` AS nomina_puesto_empleado,
+     nomina.`sueldo_empleado` AS nomina_sueldo_empleado,
+     nomina.`bonificacion_empleado` AS nomina_bonificacion_empleado,
+     nomina.`igss_empleado` AS nomina_igss_empleado,
+     nomina.`otros_empleado` AS nomina_otros_empleado,
+     nomina.`sueldoe_empleados` AS nomina_sueldoe_empleados,
+     nomina.`horase_empleados` AS nomina_horase_empleados,
+     nomina.`isr_empleados` AS nomina_isr_empleados,
+     nomina.`descuentos_empleados` AS nomina_descuentos_empleados
+FROM
+     `nomina` nomina]]>
+	</queryString>
+	<field name="nomina_ID" class="java.lang.Integer"/>
+	<field name="nomina_nombre_empleado" class="java.lang.String"/>
+	<field name="nomina_puesto_empleado" class="java.lang.String"/>
+	<field name="nomina_sueldo_empleado" class="java.lang.String"/>
+	<field name="nomina_bonificacion_empleado" class="java.lang.String"/>
+	<field name="nomina_igss_empleado" class="java.lang.String"/>
+	<field name="nomina_otros_empleado" class="java.lang.String"/>
+	<field name="nomina_sueldoe_empleados" class="java.lang.String"/>
+	<field name="nomina_horase_empleados" class="java.lang.String"/>
+	<field name="nomina_isr_empleados" class="java.lang.String"/>
+	<field name="nomina_descuentos_empleados" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="152" y="12" width="140" height="41" uuid="1371e870-e1e1-4479-9aa8-072dfd502365"/>
+				<textElement>
+					<font fontName="Berlin Sans FB" size="36"/>
+				</textElement>
+				<text><![CDATA[Nomina:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy h.mm a">
+				<reportElement x="325" y="30" width="128" height="23" uuid="3b81f2da-59f8-48ab-83b4-6030e3f7e710"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="5" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="17" height="20" uuid="44fc72c2-c76a-4c09-8f2c-0895448a71da"/>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="17" y="0" width="69" height="20" uuid="8dc9b5d2-33ae-43f2-abce-2e9461b18b91"/>
+				<text><![CDATA[nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="86" y="0" width="66" height="20" uuid="654b7e0b-40ba-415c-926a-ad7699fd05b8"/>
+				<text><![CDATA[puesto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="154" y="0" width="51" height="20" uuid="3b7e7c42-e22b-4c35-8106-fc2a17020d7b"/>
+				<text><![CDATA[sueldo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="205" y="0" width="61" height="20" uuid="906a6a79-810f-48e1-8dfd-978b27e372fd"/>
+				<text><![CDATA[bonificacion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="266" y="0" width="40" height="20" uuid="466ffe62-5aca-4b05-92cd-131f541219f1"/>
+				<text><![CDATA[igss]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="304" y="0" width="21" height="20" uuid="18317de3-8b00-4583-876e-0e2d59cea314"/>
+				<text><![CDATA[otros]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="325" y="0" width="71" height="20" uuid="53d84c73-f4cf-4c83-93a0-1302a1533d9e"/>
+				<text><![CDATA[extras]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="396" y="0" width="69" height="20" uuid="d1cf0bcc-bd10-44dd-bdcc-11eb9c2633a4"/>
+				<text><![CDATA[Horas Extras]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="465" y="0" width="20" height="20" uuid="8c6adb90-cf55-454c-805d-df57ef9d648d"/>
+				<text><![CDATA[isr]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="485" y="0" width="71" height="20" uuid="4a62569d-f746-477f-ae5d-916b1bfc347f"/>
+				<text><![CDATA[descuentos]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="31" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="17" height="20" uuid="c92c28d0-0e17-4280-8a60-af881403a0aa"/>
+				<textFieldExpression><![CDATA[$F{nomina_ID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="17" y="0" width="69" height="20" uuid="fe53a23d-4ded-4893-a67a-bfb6c1a0b8f1"/>
+				<textFieldExpression><![CDATA[$F{nomina_nombre_empleado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="86" y="0" width="66" height="20" uuid="a2f63057-68ac-4448-bd99-ebb1b5893a41"/>
+				<textFieldExpression><![CDATA[$F{nomina_puesto_empleado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="154" y="0" width="51" height="20" uuid="942effb8-130f-46e4-95f7-b89fe17721df"/>
+				<textFieldExpression><![CDATA[$F{nomina_sueldo_empleado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="205" y="0" width="59" height="20" uuid="39311132-5f1d-467b-a9cb-8d224e6e9f6a"/>
+				<textFieldExpression><![CDATA[$F{nomina_bonificacion_empleado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="264" y="0" width="40" height="20" uuid="e7b1fe88-0e56-42f7-8d0c-abf58f708adc"/>
+				<textFieldExpression><![CDATA[$F{nomina_igss_empleado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="304" y="0" width="31" height="20" uuid="d864a685-d18d-4f8b-8657-948e40c89c35"/>
+				<textFieldExpression><![CDATA[$F{nomina_otros_empleado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="335" y="0" width="61" height="20" uuid="ab58379e-9489-4228-9b99-8780b288d270"/>
+				<textFieldExpression><![CDATA[$F{nomina_sueldoe_empleados}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="396" y="0" width="69" height="20" uuid="ee26887b-2817-455f-b71e-610449d83d28"/>
+				<textFieldExpression><![CDATA[$F{nomina_horase_empleados}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="465" y="0" width="20" height="20" uuid="eb3cc2eb-4796-41a7-a311-061fad8eb3e6"/>
+				<textFieldExpression><![CDATA[$F{nomina_isr_empleados}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="485" y="0" width="71" height="20" uuid="54d396f5-b527-46e8-bfe2-d7c47b3861bd"/>
+				<textFieldExpression><![CDATA[$F{nomina_descuentos_empleados}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="10" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="9" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="409" splitType="Stretch">
+			<textField evaluationTime="Report">
+				<reportElement x="472" y="389" width="100" height="20" uuid="4f0e3fc5-2c85-4a3d-9c22-98e5bb0833e0"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>
