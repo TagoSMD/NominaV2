@@ -428,7 +428,7 @@ int ICod=0;
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
       //Codigo que permite INGRESAR registros en la base de datos
             try{
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/nominae", "root", "");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/nominae", "root", "kingcobra123DA");
             PreparedStatement pst = cn.prepareStatement("insert into nomina values(?,?,?,?,?,?,?,?,?,?,?)");
             ///* CREADO POR NAYRE
             pst.setString(1, "0");
@@ -490,7 +490,7 @@ int ICod=0;
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
     //**Codigo que permite consultar registros en la base de datos
         try{
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/nominae", "root", "");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/nominae", "root", "kingcobra123DA");
             PreparedStatement pst = cn.prepareStatement("select * from nomina where ID = ?");
             pst.setString(1, txt_buscar.getText().trim());
             

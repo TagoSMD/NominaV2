@@ -1,103 +1,149 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="95d4665f-8fd1-4e2a-b1a4-a359715cdd01">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Empleados" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4cf96f64-1516-4be1-b52c-5651ae13829a">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<queryString>
 		<![CDATA[SELECT
-     usuarios.`id` AS usuarios_id,
-     usuarios.`usuario` AS usuarios_usuario,
-     usuarios.`nombre` AS usuarios_nombre,
-     usuarios.`email` AS usuarios_email,
-     usuarios.`password` AS usuarios_password,
-     usuarios.`idTipo` AS usuarios_idTipo
+     empleado.`ID` AS empleado_ID,
+     empleado.`codigo_empleado` AS empleado_codigo_empleado,
+     empleado.`nombre_empleado` AS empleado_nombre_empleado,
+     empleado.`apellido_empleado` AS empleado_apellido_empleado,
+     empleado.`telefono_empleado` AS empleado_telefono_empleado,
+     empleado.`correo_empleado` AS empleado_correo_empleado,
+     empleado.`dirreccion_empleado` AS empleado_dirreccion_empleado,
+     empleado.`dpi_empleado` AS empleado_dpi_empleado,
+     empleado.`estado_empleado` AS empleado_estado_empleado,
+     empleado.`sueldo_empleado` AS empleado_sueldo_empleado,
+     empleado.`cargo_empleado` AS empleado_cargo_empleado
 FROM
-     `usuarios` usuarios]]>
+     `empleado` empleado]]>
 	</queryString>
-	<field name="usuarios_id" class="java.lang.Integer"/>
-	<field name="usuarios_usuario" class="java.lang.String"/>
-	<field name="usuarios_nombre" class="java.lang.String"/>
-	<field name="usuarios_email" class="java.lang.String"/>
-	<field name="usuarios_password" class="java.lang.String"/>
-	<field name="usuarios_idTipo" class="java.lang.Integer"/>
+	<field name="empleado_ID" class="java.lang.Integer"/>
+	<field name="empleado_codigo_empleado" class="java.lang.String"/>
+	<field name="empleado_nombre_empleado" class="java.lang.String"/>
+	<field name="empleado_apellido_empleado" class="java.lang.String"/>
+	<field name="empleado_telefono_empleado" class="java.lang.String"/>
+	<field name="empleado_correo_empleado" class="java.lang.String"/>
+	<field name="empleado_dirreccion_empleado" class="java.lang.String"/>
+	<field name="empleado_dpi_empleado" class="java.lang.String"/>
+	<field name="empleado_estado_empleado" class="java.lang.String"/>
+	<field name="empleado_sueldo_empleado" class="java.lang.String"/>
+	<field name="empleado_cargo_empleado" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
 		<band height="79" splitType="Stretch">
 			<staticText>
-				<reportElement x="91" y="15" width="271" height="64" uuid="4109f836-1e7d-48f2-8276-400b192c4085"/>
+				<reportElement x="130" y="11" width="190" height="50" uuid="a339f1f8-f6ec-48cf-b64e-33ee54944dbc"/>
 				<textElement>
-					<font size="14"/>
+					<font fontName="Berlin Sans FB Demi" size="36"/>
 				</textElement>
-				<text><![CDATA[Nomina De Empleados]]></text>
+				<text><![CDATA[Empleados]]></text>
 			</staticText>
-			<image>
-				<reportElement x="15" y="15" width="38" height="39" uuid="43b7f323-7f94-40ad-a688-a4720d8a7eb9"/>
-				<imageExpression><![CDATA["C:\\Users\\Tago\\Desktop\\PROYECTOFINALPROGRMACION\\NominaV2\\build\\classes\\Iconos\\business-color_money-time_icon-icons.com_53444.png"]]></imageExpression>
-			</image>
-			<textField pattern="dd/MM/yyyy">
-				<reportElement x="404" y="29" width="133" height="20" uuid="0bc790c8-8439-4c21-8b2e-7744fd0e1f0a"/>
+			<textField pattern="dd/MM/yyyy h.mm a">
+				<reportElement x="362" y="26" width="100" height="35" uuid="59c4c097-07a4-45d3-98ba-39f2bc8d5989"/>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 		</band>
 	</title>
 	<pageHeader>
-		<band height="13" splitType="Stretch"/>
+		<band height="35" splitType="Stretch"/>
 	</pageHeader>
 	<columnHeader>
-		<band height="23" splitType="Stretch">
+		<band height="63" splitType="Stretch">
 			<staticText>
-				<reportElement x="0" y="0" width="100" height="20" uuid="69069dfb-d14a-4605-bd8a-134536d2b9e2"/>
-				<text><![CDATA[usuarios_id]]></text>
+				<reportElement x="0" y="0" width="18" height="20" uuid="407c223e-5ef2-4a0c-9a27-3becb9f5b202"/>
+				<text><![CDATA[ID]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="100" y="0" width="100" height="20" uuid="b956a62c-f2ba-4e23-823f-2f30d0b4de60"/>
-				<text><![CDATA[usuarios_usuario]]></text>
+				<reportElement x="18" y="0" width="35" height="20" uuid="dbc3bf07-203f-45d9-bb99-06996c073283"/>
+				<text><![CDATA[codigo]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="200" y="0" width="100" height="20" uuid="ff7019cd-41d1-4498-957d-1fe35da86e5e"/>
-				<text><![CDATA[usuarios_nombre]]></text>
+				<reportElement x="53" y="0" width="50" height="20" uuid="47fd6897-e0a3-4e6e-b9ae-5de1948a2787"/>
+				<text><![CDATA[nombre]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="300" y="0" width="100" height="20" uuid="d514025c-e4ab-4c47-802f-fce2d63ef368"/>
-				<text><![CDATA[usuarios_email]]></text>
+				<reportElement x="0" y="0" width="71" height="20" uuid="cde6f3bd-90bf-4d37-8357-779e0767f150"/>
+				<text><![CDATA[empleado_apellido_empleado]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="400" y="0" width="100" height="20" uuid="363f06b4-2ac8-47c2-af44-1caed2c6c593"/>
-				<text><![CDATA[usuarios_password]]></text>
+				<reportElement x="71" y="0" width="71" height="20" uuid="8a46f321-b6e8-445b-9378-ef61651ec388"/>
+				<text><![CDATA[empleado_telefono_empleado]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="500" y="0" width="70" height="20" uuid="5d9d9815-d22f-4e14-b979-2e642beaa476"/>
-				<text><![CDATA[usuarios_idTipo]]></text>
+				<reportElement x="142" y="0" width="71" height="20" uuid="9ac46b10-d598-4f76-a258-ebcf19757dc4"/>
+				<text><![CDATA[empleado_correo_empleado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="213" y="0" width="71" height="20" uuid="2cb61f96-66f2-4926-bd9a-df4c9fc2d254"/>
+				<text><![CDATA[empleado_dirreccion_empleado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="284" y="0" width="71" height="20" uuid="a41a07b3-cd11-4ac4-8de5-818e92819450"/>
+				<text><![CDATA[empleado_dpi_empleado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="355" y="0" width="71" height="20" uuid="ec137086-8009-41b8-81fd-1f6c1c705ed0"/>
+				<text><![CDATA[empleado_estado_empleado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="426" y="0" width="71" height="20" uuid="9becbc44-e51d-4188-a14d-4bc2708e0d02"/>
+				<text><![CDATA[empleado_sueldo_empleado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="497" y="0" width="71" height="20" uuid="2b9c66c2-1996-4160-a289-9fdd83f168a7"/>
+				<text><![CDATA[empleado_cargo_empleado]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="33" splitType="Stretch">
+		<band height="120" splitType="Stretch">
 			<textField>
-				<reportElement x="0" y="0" width="100" height="20" uuid="ef02f244-3215-4224-b833-ac70cd715ada"/>
-				<textFieldExpression><![CDATA[$F{usuarios_id}]]></textFieldExpression>
+				<reportElement x="0" y="0" width="18" height="20" uuid="42419196-30fd-448a-8569-3eb3d420b685"/>
+				<textFieldExpression><![CDATA[$F{empleado_ID}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="99" y="0" width="100" height="20" uuid="9486de9b-aa52-489e-bcaa-aaa344b6cd2a"/>
-				<textFieldExpression><![CDATA[$F{usuarios_usuario}]]></textFieldExpression>
+				<reportElement x="18" y="0" width="35" height="20" uuid="eb2c0510-fb91-48ad-b494-eafab6604e76"/>
+				<textFieldExpression><![CDATA[$F{empleado_codigo_empleado}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="200" y="0" width="100" height="20" uuid="dc591fbc-e8f5-4bde-9e7d-2a1882e753af"/>
-				<textFieldExpression><![CDATA[$F{usuarios_nombre}]]></textFieldExpression>
+				<reportElement x="53" y="0" width="50" height="20" uuid="0f4ba989-a51e-4f88-84b7-402477112cd1"/>
+				<textFieldExpression><![CDATA[$F{empleado_nombre_empleado}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="304" y="0" width="100" height="20" uuid="66453d9a-5fca-4677-900d-b80eb414c9a2"/>
-				<textFieldExpression><![CDATA[$F{usuarios_email}]]></textFieldExpression>
+				<reportElement x="0" y="0" width="71" height="20" uuid="e257ecc5-4641-485d-beaa-613c5dd8268e"/>
+				<textFieldExpression><![CDATA[$F{empleado_apellido_empleado}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="404" y="0" width="100" height="20" uuid="9cb5f4a3-9526-4061-a69e-193b24349c23"/>
-				<textFieldExpression><![CDATA[$F{usuarios_password}]]></textFieldExpression>
+				<reportElement x="71" y="0" width="71" height="20" uuid="004f0969-0ea2-4ea3-81fd-17c6bc11ada6"/>
+				<textFieldExpression><![CDATA[$F{empleado_telefono_empleado}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="504" y="0" width="66" height="20" uuid="f0658d92-7faa-470a-8196-7445c99038d4"/>
-				<textFieldExpression><![CDATA[$F{usuarios_idTipo}]]></textFieldExpression>
+				<reportElement x="142" y="0" width="71" height="20" uuid="e01952f7-c528-483b-8991-125422ad78f5"/>
+				<textFieldExpression><![CDATA[$F{empleado_correo_empleado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="213" y="0" width="71" height="20" uuid="7ef03c85-babf-4724-9c8b-9213083dd3be"/>
+				<textFieldExpression><![CDATA[$F{empleado_dirreccion_empleado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="284" y="0" width="71" height="20" uuid="252974cc-32d9-4460-98fb-d30941ed3990"/>
+				<textFieldExpression><![CDATA[$F{empleado_dpi_empleado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="355" y="0" width="71" height="20" uuid="554e11ce-7d8a-4dce-9a68-170364681f8f"/>
+				<textFieldExpression><![CDATA[$F{empleado_estado_empleado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="426" y="0" width="71" height="20" uuid="2a8e04bd-f952-439b-9d20-bedc5e83cb07"/>
+				<textFieldExpression><![CDATA[$F{empleado_sueldo_empleado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="497" y="0" width="71" height="20" uuid="b004f2cd-8af2-4d19-a020-af1a79ad2975"/>
+				<textFieldExpression><![CDATA[$F{empleado_cargo_empleado}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
@@ -105,19 +151,14 @@ FROM
 		<band height="45" splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
-		<band height="54" splitType="Stretch">
-			<textField>
-				<reportElement x="199" y="24" width="80" height="20" uuid="eafd3765-171f-4cc0-bad4-6e5bff381db8"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
-			</textField>
-			<textField evaluationTime="Report">
-				<reportElement x="279" y="24" width="40" height="20" uuid="367b0b8e-5498-4605-a92e-431b5f7c2794"/>
-				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
-			</textField>
-		</band>
+		<band height="54" splitType="Stretch"/>
 	</pageFooter>
 	<summary>
-		<band height="42" splitType="Stretch"/>
+		<band height="42" splitType="Stretch">
+			<textField>
+				<reportElement x="462" y="22" width="100" height="20" uuid="12faed5c-e310-4077-81d7-be1f38f97da8"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
 	</summary>
 </jasperReport>
