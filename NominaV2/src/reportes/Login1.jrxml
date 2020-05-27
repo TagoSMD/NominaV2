@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Login1" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f8c2d327-23d4-4767-95c8-7ed75b44730d">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="25"/>
 	<queryString>
 		<![CDATA[SELECT
      usuarios.`id` AS usuarios_id,
@@ -41,10 +41,10 @@ FROM
 		</band>
 	</title>
 	<pageHeader>
-		<band height="37" splitType="Stretch"/>
+		<band height="21" splitType="Stretch"/>
 	</pageHeader>
 	<columnHeader>
-		<band height="61" splitType="Stretch">
+		<band height="40" splitType="Stretch">
 			<staticText>
 				<reportElement x="0" y="0" width="28" height="20" uuid="4ecde2d7-1018-4e09-96e2-e4b630f28883"/>
 				<text><![CDATA[usuarios]]></text>
@@ -72,7 +72,7 @@ FROM
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="125" splitType="Stretch">
+		<band height="26" splitType="Stretch">
 			<textField>
 				<reportElement x="0" y="0" width="28" height="20" uuid="7766ce23-185a-4905-8a7b-fe2d88e9c39c"/>
 				<textFieldExpression><![CDATA[$F{usuarios_id}]]></textFieldExpression>
@@ -100,15 +100,15 @@ FROM
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="45" splitType="Stretch"/>
+		<band height="19" splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
-		<band height="54" splitType="Stretch"/>
+		<band splitType="Stretch"/>
 	</pageFooter>
 	<summary>
-		<band height="42" splitType="Stretch">
+		<band height="354" splitType="Stretch">
 			<textField evaluationTime="Report">
-				<reportElement x="235" y="0" width="100" height="20" uuid="5cd4196f-1f8c-45ac-8a59-340871096cab"/>
+				<reportElement x="472" y="334" width="100" height="20" uuid="5cd4196f-1f8c-45ac-8a59-340871096cab"/>
 				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 		</band>
