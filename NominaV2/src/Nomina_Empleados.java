@@ -428,7 +428,7 @@ int ICod=0;
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
             try{
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/nominae", "root", "");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/nominae", "root", "kingcobra123DA");
             PreparedStatement pst = cn.prepareStatement("insert into nomina values(?,?,?,?,?,?,?,?,?,?,?)");
             
             pst.setString(1, "0");
@@ -491,7 +491,7 @@ int ICod=0;
         // TODO add your handling code here:
                 //Codigo que permite consultar registros en la base de datos
         try{
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/nominae", "root", "");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/nominae", "root", "kingcobra123DA");
             PreparedStatement pst = cn.prepareStatement("select * from nomina where ID = ?");
             pst.setString(1, txt_buscar.getText().trim());
             

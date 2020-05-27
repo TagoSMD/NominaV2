@@ -95,23 +95,7 @@ public class Reporte extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO   try{
-       
-          
-        try {
-            Conexion con = new Conexion();
-        Connection conn = con.getConexion();
-         JasperReport reporte = null;
-         String path="src//Reportes//Empleados.jasper";
-            reporte = (JasperReport)  JRLoader.loadObjectFromFile(path);
-             JasperPrint jprint = JasperFillManager.fillReport(path, null, conn);
-                JasperViewer view = new JasperViewer(jprint, false);
-                view.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-                view.setVisible(true);
-        } catch (JRException ex) {
-            Logger.getLogger(Reporte.class.getName()).log(Level.SEVERE, null, ex);
-        }
-               
+ 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -120,7 +104,7 @@ public class Reporte extends javax.swing.JFrame {
             Conexion con = new Conexion();
         Connection conn = con.getConexion();
          JasperReport reporte = null;
-         String pathz="src//Reportes//Empleados2.jasper";
+         String pathz="src//Reportes//Nomina.jasper";
             reporte = (JasperReport)  JRLoader.loadObjectFromFile(pathz);
              JasperPrint jprint = JasperFillManager.fillReport(pathz, null, conn);
                 JasperViewer view = new JasperViewer(jprint, false);
@@ -137,7 +121,7 @@ public class Reporte extends javax.swing.JFrame {
             Conexion con = new Conexion();
         Connection conn = con.getConexion();
          JasperReport reporte = null;
-         String pathz="src//Reportes//Login.jasper";
+         String pathz="src//Reportes//Login1.jasper";
             reporte = (JasperReport)  JRLoader.loadObjectFromFile(pathz);
              JasperPrint jprint = JasperFillManager.fillReport(pathz, null, conn);
                 JasperViewer view = new JasperViewer(jprint, false);

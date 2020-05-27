@@ -1,4 +1,4 @@
-
+//Santiago Martinez Diaz 9959-19-13847
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import javax.swing.UIManager;
@@ -101,7 +101,7 @@ public class Inicio extends javax.swing.JFrame {
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
-           UIManager.setLookAndFeel("com.jtattoo.plaf.luna.LunaLookAndFeel");
+           UIManager.setLookAndFeel("com.jtattoo.plaf.graphite.GraphiteLookAndFeel");
             
         } catch (ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(Inicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);

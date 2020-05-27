@@ -1,4 +1,4 @@
-//Conexion A la base de datos de login3
+//Conexion A la base de datos de Nomina para poder generar el reporte
 //Santiago Martinez Diaz 9959-19-13847
 package Clases;
 
@@ -8,9 +8,9 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class Conexion {
+public class ConexionNomina {
     
-    private final String base = "login3";
+    private final String base = "nominae";
     private final String user = "root";
     private final String password = "kingcobra123DA";
     private final String url = "jdbc:mysql://localhost/" + base;
