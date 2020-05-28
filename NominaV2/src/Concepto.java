@@ -333,15 +333,15 @@ public class Concepto extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
 
         try{
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/Departamentos", "root", "");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/Conceptos1", "root", "");
 
-            PreparedStatement ps=cn.prepareStatement("select * from departamento");
+            PreparedStatement ps=cn.prepareStatement("select * from concepto");
             ResultSet rs=ps.executeQuery();
             DefaultTableModel tm=(DefaultTableModel)jTable1.getModel();
             tm.setRowCount(0);
             while(rs.next())
             {
-                Object o[]={rs.getInt("ID"),rs.getString("codigo_departamento"),rs.getString("nombre_departamento"),rs.getString("encargado_departamento"),rs.getString("telefono_departamento"),rs.getString("correo_departamento")};
+                Object o[]={rs.getInt("ID"),rs.getString("codigo_concepto"),rs.getString("nombre_concepto"),rs.getString("efecto_concepto")};
                 tm.addRow(o);
             }
         }

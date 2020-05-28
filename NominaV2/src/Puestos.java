@@ -246,7 +246,7 @@ public class Puestos extends javax.swing.JInternalFrame {
                         .addGap(53, 53, 53)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(133, 133, 133)
+                        .addGap(109, 109, 109)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(141, Short.MAX_VALUE))
         );
@@ -347,15 +347,15 @@ public class Puestos extends javax.swing.JInternalFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
           try{
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/Departamentos", "root", "");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/puestos1", "root", "");
 
-            PreparedStatement ps=cn.prepareStatement("select * from departamento");
+            PreparedStatement ps=cn.prepareStatement("select * from puesto");
             ResultSet rs=ps.executeQuery();
             DefaultTableModel tm=(DefaultTableModel)jTable1.getModel();
             tm.setRowCount(0);
             while(rs.next())
             {
-                Object o[]={rs.getInt("ID"),rs.getString("codigo_departamento"),rs.getString("nombre_departamento"),rs.getString("encargado_departamento"),rs.getString("telefono_departamento"),rs.getString("correo_departamento")};
+                Object o[]={rs.getInt("ID"),rs.getString("codigo_puesto"),rs.getString("nombre_puesto"),rs.getString("nombre_empleado"),rs.getString("estatus_puesto")};
                 tm.addRow(o);
             }
         }
