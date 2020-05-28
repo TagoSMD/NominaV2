@@ -371,7 +371,7 @@ public class Nomina_Empleados extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 int ICod=0;
     private void RegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistroActionPerformed
- //** se utiliza este codigo para la tabla automaticamente haga los calculos 
+ //** se utiliza este codigo para la tabla automaticamente haga los calculos que se ingresan en TextField
 /////////// SE AGREGA EL DECIMAL FORMAT PARA DECIMALES 
  DecimalFormat SueldoLiquid = new DecimalFormat("0.0");
  /////////// DECLARACION DE VARIABLES STRING FLOAT INT 
@@ -420,7 +420,7 @@ int ICod=0;
  Object[] fila = new Object[13];
  DefaultTableModel modelo = (DefaultTableModel) tblDatos.getModel();
  ICod++;
-            fila [0]=String.valueOf(ICod);
+            fila [0]=String.valueOf(ICod);  ///*** esta es la tabla la cual se le ingresa toda la informacion ingresada en los TxtFiel
             fila [1]=NombreEmp;
             fila [2]=PuestoE;
             fila [3]=String.valueOf(Sueldos);
@@ -448,9 +448,9 @@ int ICod=0;
             PreparedStatement pst = cn.prepareStatement("insert into nomina values(?,?,?,?,?,?,?,?,?,?,?)");
             ///* CREADO POR NAYRE
             pst.setString(1, "0");
-            pst.setString(2, txt_nombreE.getText().trim());
+            pst.setString(2, txt_nombreE.getText().trim());  //* se ingresa a la base de datos que se registran en los txt
             pst.setString(3, txt_Puesto.getText().trim());
-             pst.setString(4, txt_Sueldo.getText().trim());
+             pst.setString(4, txt_Sueldo.getText().trim()); //** se ingresan a la base de datos los registros de los textField
              pst.setString(5, txt_Bonif.getText().trim());
             pst.setString(6, txt_Igss.getText().trim());
              pst.setString(7, txt_oIngre.getText().trim());
@@ -485,11 +485,11 @@ int ICod=0;
             pst.setString(1, txt_buscar.getText().trim());
             pst.executeUpdate();
             //* Creado por Nayre
-            txt_nombreE.setText("");
+            txt_nombreE.setText("");     //* se eliminan de la base de datos que se registran en los txtField
             txt_Puesto.setText("");
             txt_Sueldo.setText("");
              txt_Bonif.setText("");
-            txt_Igss.setText("");
+            txt_Igss.setText("");     //* se eliminan de la base de datos que se registran en los txtField
             txt_oIngre.setText("");
              txt_sExtra.setText("");
             txt_Hextra.setText("");
@@ -515,9 +515,9 @@ int ICod=0;
             if(rs.next()){
           
                 txt_nombreE.setText(rs.getString("nombre_empleado"));
-                txt_Puesto.setText(rs.getString("puesto_empleado"));
+                txt_Puesto.setText(rs.getString("puesto_empleado"));    //* se buscan de la base de datos los registros que se ingresaron en los textField 
                 txt_Sueldo.setText(rs.getString("sueldo_empleado"));
-                txt_Bonif.setText(rs.getString("bonificacion_empleado"));
+                txt_Bonif.setText(rs.getString("bonificacion_empleado")); //* se buscan de la base de datos los registros que se ingresaron en los textField 
                 txt_Igss.setText(rs.getString("igss_empleado"));
                 txt_oIngre.setText(rs.getString("otros_empleado"));
                 txt_sExtra.setText(rs.getString("sueldoe_empleados"));
@@ -535,19 +535,19 @@ int ICod=0;
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        //Codigo que permite buscar registros en la base de datos
+        //Codigo que permite buscar registros en la base de datos y modificarlos 
          try {
             String ID = txt_buscar.getText().trim();
             ///*creado por Nayre
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/nominae", "root", "");
             PreparedStatement pst = cn.prepareStatement("update nomina set nombre_empleado = ?, puesto_empleado = ?, sueldo_empleado = ?, bonificacion_empleado = ?, igss_empleado = ?, otros_empleado = ?, sueldoe_empleados = ?, horase_empleados = ?, isr_empleados = ? , descuentos_empleados = ?  where ID = " + ID);
 
-            pst.setString(1, txt_nombreE.getText().trim());
+            pst.setString(1, txt_nombreE.getText().trim()); 
             pst.setString(2, txt_Puesto.getText().trim());
-            pst.setString(3, txt_Sueldo.getText().trim());
+            pst.setString(3, txt_Sueldo.getText().trim());  //* se buscan de la base de datos los registros que se ingresaron en los textField  para Modificarlos y guardar los cambios
             pst.setString(4, txt_Bonif.getText().trim());
             pst.setString(5, txt_Igss.getText().trim());
-            pst.setString(6, txt_oIngre.getText().trim());
+            pst.setString(6, txt_oIngre.getText().trim());  //* se buscan de la base de datos los registros que se ingresaron en los textField  para Modificarlos y guardar los cambios
             pst.setString(7, txt_sExtra.getText().trim());
             pst.setString(8, txt_Hextra.getText().trim());
             pst.setString(9, txt_Isr.getText().trim());
