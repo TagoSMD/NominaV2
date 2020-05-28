@@ -250,7 +250,7 @@ public class Concepto extends javax.swing.JInternalFrame {
             PreparedStatement pst = cn.prepareStatement("insert into concepto values(?,?,?,?)");
 
             pst.setString(1, "0");
-            pst.setString(2, txtCodigoConcep.getText().trim());
+            pst.setString(2, txtCodigoConcep.getText().trim());  //* se Registran en la base de datos los registros que se ingresaron en los textField 
             pst.setString(3, txtNombreConcep.getText().trim());
             pst.setString(4, txtEfectoConcep.getText().trim());
             pst.executeUpdate();
@@ -274,7 +274,7 @@ public class Concepto extends javax.swing.JInternalFrame {
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/Conceptos1", "root", "");
             PreparedStatement pst = cn.prepareStatement("update concepto set codigo_concepto = ?, nombre_concepto = ?, efecto_concepto = ? where ID = " + ID);
 
-            pst.setString(1, txtCodigoConcep.getText().trim());
+            pst.setString(1, txtCodigoConcep.getText().trim());   //* se buscan de la base de datos los registros que se ingresaron en los textField  para Modificarlos y guardar los cambios
             pst.setString(2, txtNombreConcep.getText().trim());
             pst.setString(3, txtEfectoConcep.getText().trim());
             pst.executeUpdate();
@@ -298,7 +298,7 @@ public class Concepto extends javax.swing.JInternalFrame {
 
             if(rs.next()){
 
-                txtCodigoConcep.setText(rs.getString("codigo_concepto"));
+                txtCodigoConcep.setText(rs.getString("codigo_concepto"));   //* se buscan de la base de datos los registros que se ingresaron en los textField 
                 txtNombreConcep.setText(rs.getString("nombre_concepto"));
                 txtEfectoConcep.setText(rs.getString("efecto_concepto"));
             } else {
@@ -319,7 +319,7 @@ public class Concepto extends javax.swing.JInternalFrame {
             pst.setString(1, Txt_Buscar.getText().trim());
             pst.executeUpdate();
 
-            txtCodigoConcep.setText("");
+            txtCodigoConcep.setText("");   //* se buscan  y eliminan de la base de datos los registros que se ingresaron en los textField 
             txtNombreConcep.setText("");
             txtEfectoConcep.setText("");
             
