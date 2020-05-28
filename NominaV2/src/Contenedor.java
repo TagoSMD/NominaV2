@@ -63,34 +63,20 @@ private Concepto nuevaVentana5;
        // JFrame.setDefaultLookAndFeelDecorated(true);
       //  SubstanceLookAndFeel.setSkin("org.jvnet.substance.skin.MagmaSkin");
                 Contenedor ve= new Contenedor ();
-                ve.setVisible(true);
+                ve.setVisible(false);
 
         if (mod.getIdTipo() == 1) {
-            Menucatalogo.setVisible(true);
-           //   Menueditar.setVisible(true);
-             // MenuSalir.setVisible(true);
-       
-        //}
-         } else {
-            Menucatalogo.setVisible(true);
-           Menucatalogo.setVisible(true);
-            
+               MenuCatalogo.setVisible(false);
+              MenuReporte.setVisible(false);
+              MenuOpciones.setVisible(false);
         }
         if (mod.getIdTipo() == 2) {
-            Menucatalogo.setVisible(true);
-            Menucatalogo.setVisible(true);
-        //} else {
-          //  menuProveedores.setVisible(false);
-           //menuProductos.setVisible(false);
+               MenuCatalogo.setVisible(true);
+              MenuReporte.setVisible(true);
+              MenuOpciones.setVisible(true);
         }
-            if (mod.getIdTipo() == 3) {
-            Menucatalogo.setVisible(true);
-            Menucatalogo.setVisible(false);
-        //} else {
-          //  menuProveedores.setVisible(false);
-           //menuProductos.setVisible(false);
-            }
-    
+               
+        
     }
 
 
@@ -113,15 +99,15 @@ private Concepto nuevaVentana5;
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu2 = new javax.swing.JMenu();
+        MenuCatalogo = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
+        MenuReporte = new javax.swing.JMenu();
         jMenuItem9 = new javax.swing.JMenuItem();
-        jMenu4 = new javax.swing.JMenu();
+        MenuOpciones = new javax.swing.JMenu();
         jMenuItem8 = new javax.swing.JMenuItem();
 
         jMenuItem7.setText("jMenuItem7");
@@ -161,14 +147,14 @@ private Concepto nuevaVentana5;
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes2/fondo.png"))); // NOI18N
         jLabel1.setText("jLabel1");
-        jDesktopPane1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 570));
+        jDesktopPane1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1350, 650));
 
         jMenuBar1.setBackground(new java.awt.Color(204, 255, 204));
         jMenuBar1.setForeground(new java.awt.Color(204, 255, 204));
 
-        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/catalogo-ConvertImage (1).png"))); // NOI18N
-        jMenu2.setText("Catalogo");
-        jMenu2.setFont(new java.awt.Font("Franklin Gothic Demi", 1, 18)); // NOI18N
+        MenuCatalogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/catalogo-ConvertImage (1).png"))); // NOI18N
+        MenuCatalogo.setText("Catalogo");
+        MenuCatalogo.setFont(new java.awt.Font("Franklin Gothic Demi", 1, 18)); // NOI18N
 
         jMenuItem2.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 18)); // NOI18N
         jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/employee__icon-icons.com_76984.png"))); // NOI18N
@@ -178,7 +164,7 @@ private Concepto nuevaVentana5;
                 jMenuItem2ActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem2);
+        MenuCatalogo.add(jMenuItem2);
 
         jMenuItem1.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 18)); // NOI18N
         jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/business-color_money-time_icon-icons.com_53444.png"))); // NOI18N
@@ -188,7 +174,7 @@ private Concepto nuevaVentana5;
                 jMenuItem1ActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem1);
+        MenuCatalogo.add(jMenuItem1);
 
         jMenuItem4.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 18)); // NOI18N
         jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/rotation_102346 (1).png"))); // NOI18N
@@ -198,7 +184,7 @@ private Concepto nuevaVentana5;
                 jMenuItem4ActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem4);
+        MenuCatalogo.add(jMenuItem4);
 
         jMenuItem5.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 18)); // NOI18N
         jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/post-it-icon_34380.png"))); // NOI18N
@@ -208,7 +194,7 @@ private Concepto nuevaVentana5;
                 jMenuItem5ActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem5);
+        MenuCatalogo.add(jMenuItem5);
 
         jMenuItem6.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 18)); // NOI18N
         jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Bulb_concept_creativity_idea_imagination_genius_light_icon-icons.com_55336.png"))); // NOI18N
@@ -218,13 +204,13 @@ private Concepto nuevaVentana5;
                 jMenuItem6ActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem6);
+        MenuCatalogo.add(jMenuItem6);
 
-        jMenuBar1.add(jMenu2);
+        jMenuBar1.add(MenuCatalogo);
 
-        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/documentediting_editdocuments_text_documentedi_2820.png"))); // NOI18N
-        jMenu3.setText("Reporte");
-        jMenu3.setFont(new java.awt.Font("Franklin Gothic Demi", 1, 18)); // NOI18N
+        MenuReporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/documentediting_editdocuments_text_documentedi_2820.png"))); // NOI18N
+        MenuReporte.setText("Reporte");
+        MenuReporte.setFont(new java.awt.Font("Franklin Gothic Demi", 1, 18)); // NOI18N
 
         jMenuItem9.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 18)); // NOI18N
         jMenuItem9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/business-color_money-time_icon-icons.com_53444.png"))); // NOI18N
@@ -234,13 +220,13 @@ private Concepto nuevaVentana5;
                 jMenuItem9ActionPerformed(evt);
             }
         });
-        jMenu3.add(jMenuItem9);
+        MenuReporte.add(jMenuItem9);
 
-        jMenuBar1.add(jMenu3);
+        jMenuBar1.add(MenuReporte);
 
-        jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/1486504328-bullet-list-menu-lines-points-items-options_81334.png"))); // NOI18N
-        jMenu4.setText("Opciones");
-        jMenu4.setFont(new java.awt.Font("Franklin Gothic Demi", 1, 18)); // NOI18N
+        MenuOpciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/1486504328-bullet-list-menu-lines-points-items-options_81334.png"))); // NOI18N
+        MenuOpciones.setText("Opciones");
+        MenuOpciones.setFont(new java.awt.Font("Franklin Gothic Demi", 1, 18)); // NOI18N
 
         jMenuItem8.setFont(new java.awt.Font("Franklin Gothic Demi", 1, 18)); // NOI18N
         jMenuItem8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Delete-80_icon-icons.com_57340.png"))); // NOI18N
@@ -250,9 +236,9 @@ private Concepto nuevaVentana5;
                 jMenuItem8ActionPerformed(evt);
             }
         });
-        jMenu4.add(jMenuItem8);
+        MenuOpciones.add(jMenuItem8);
 
-        jMenuBar1.add(jMenu4);
+        jMenuBar1.add(MenuOpciones);
 
         setJMenuBar(jMenuBar1);
 
@@ -260,7 +246,7 @@ private Concepto nuevaVentana5;
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1190, Short.MAX_VALUE)
+            .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -363,15 +349,15 @@ private Concepto nuevaVentana5;
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu MenuCatalogo;
+    private javax.swing.JMenu MenuOpciones;
+    private javax.swing.JMenu MenuReporte;
     private javax.swing.JMenu MenuSalir;
     private javax.swing.JMenu Menucatalogo;
     private javax.swing.JMenu Menueditar;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem13;

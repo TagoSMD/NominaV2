@@ -298,7 +298,7 @@ public class Departamentos extends javax.swing.JInternalFrame {
     try {
             String ID = Txt_Buscar.getText().trim();
             
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/Departamentos", "root", "kingcobra123DA");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/Departamentos", "root", "");
             PreparedStatement pst = cn.prepareStatement("update departamento set codigo_departamento = ?, nombre_departamento = ?, encargado_departamento = ?, telefono_departamento = ?, correo_departamento = ? where ID = " + ID);
 
             pst.setString(1, CodigoDepa.getText().trim());
@@ -319,7 +319,7 @@ public class Departamentos extends javax.swing.JInternalFrame {
     private void buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarActionPerformed
       //Codigo que permite consultar registros en la base de datos
         try{
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/Departamentos", "root", "kingcobra123DA");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/Departamentos", "root", "");
             PreparedStatement pst = cn.prepareStatement("select * from departamento where ID = ?");
             pst.setString(1, Txt_Buscar.getText().trim());
             
@@ -345,7 +345,7 @@ public class Departamentos extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
 
     try{
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/Departamentos", "root", "kingcobra123DA");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/Departamentos", "root", "");
 
 PreparedStatement ps=cn.prepareStatement("select * from departamento");
 ResultSet rs=ps.executeQuery();

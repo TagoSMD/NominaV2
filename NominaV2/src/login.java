@@ -64,6 +64,7 @@ public class login extends javax.swing.JFrame {
 
         btnEntrar.setBackground(new java.awt.Color(255, 255, 255));
         btnEntrar.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 24)); // NOI18N
+        btnEntrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Right3Green.png"))); // NOI18N
         btnEntrar.setText("Ingresar:");
         btnEntrar.setBorder(null);
         btnEntrar.addActionListener(new java.awt.event.ActionListener() {
