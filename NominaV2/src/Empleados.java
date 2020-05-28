@@ -331,7 +331,7 @@ public class Empleados extends javax.swing.JInternalFrame {
         //Conexion a la base de datos para añadir guardar los campos en los textfield en la tabla db
        
          try{
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/empleados", "root", "kingcobra123DA");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/empleados", "root", "");
             PreparedStatement pst = cn.prepareStatement("insert into empleado values(?,?,?,?,?,?,?,?,?,?,?)");
             
            pst.setString(1, "0");
@@ -367,7 +367,7 @@ public class Empleados extends javax.swing.JInternalFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // Conexion a la base de datos para buscar el registro en la base de datos y ingresarlos en los textfiedl
          try{
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/empleados", "root", "kingcobra123DA");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/empleados", "root", "");
             PreparedStatement pst = cn.prepareStatement("select * from empleado where ID = ?");
             pst.setString(1, txt_buscar.getText().trim());
 
@@ -397,7 +397,7 @@ public class Empleados extends javax.swing.JInternalFrame {
           try {
             String ID = txt_buscar.getText().trim();
 
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/empleados", "root", "kingcobra123DA");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/empleados", "root", "");
             PreparedStatement pst = cn.prepareStatement("update empleado set codigo_empleado = ?,nombre_empleado = ?,apellido_empleado = ?,telefono_empleado = ?,correo_empleado = ?,dirreccion_empleado = ?,dpi_empleado = ?,estado_empleado = ?,sueldo_empleado = ?,cargo_empleado = ? where ID = " + ID);
     
             pst.setString(1, txtCodigo.getText().trim());
@@ -434,7 +434,7 @@ public class Empleados extends javax.swing.JInternalFrame {
         // Conexion a la base de datos para llenar la tabla con los campos de las tabla bd
      
         try{
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/empleados", "root", "kingcobra123DA");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/empleados", "root", "");
 
             PreparedStatement ps=cn.prepareStatement("select * from empleado");
             ResultSet rs=ps.executeQuery();

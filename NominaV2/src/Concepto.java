@@ -333,7 +333,7 @@ public class Concepto extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
 
         try{
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/Departamentos", "root", "kingcobra123DA");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/Departamentos", "root", "");
 
             PreparedStatement ps=cn.prepareStatement("select * from departamento");
             ResultSet rs=ps.executeQuery();
