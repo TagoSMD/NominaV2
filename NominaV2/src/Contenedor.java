@@ -1,4 +1,5 @@
 //Se importaron las oonexiones y clases 
+//Santiago Martinez DiZ 9959-19-13857
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import Clases.Usuarios;
@@ -54,6 +55,7 @@ private Concepto nuevaVentana5;
     }
 
 
+   
 
   
     Contenedor(Usuarios mod) {
