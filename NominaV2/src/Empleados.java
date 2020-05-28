@@ -1,4 +1,4 @@
-
+//Santiago Martinez Diaz 9959-19-13848
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -328,7 +328,8 @@ public class Empleados extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        //Conexion a la base de datos para añadir guardar los campos en los textfield en la tabla db
+       
          try{
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/empleados", "root", "kingcobra123DA");
             PreparedStatement pst = cn.prepareStatement("insert into empleado values(?,?,?,?,?,?,?,?,?,?,?)");
@@ -364,7 +365,7 @@ public class Empleados extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+        // Conexion a la base de datos para buscar el registro en la base de datos y ingresarlos en los textfiedl
          try{
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/empleados", "root", "kingcobra123DA");
             PreparedStatement pst = cn.prepareStatement("select * from empleado where ID = ?");
@@ -392,7 +393,7 @@ public class Empleados extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        //Conexion a la base de datos para actualizar los cambios hechos en los textfield y enviarlos a la bd
           try {
             String ID = txt_buscar.getText().trim();
 
@@ -430,8 +431,8 @@ public class Empleados extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-
+        // Conexion a la base de datos para llenar la tabla con los campos de las tabla bd
+     
         try{
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/empleados", "root", "kingcobra123DA");
 

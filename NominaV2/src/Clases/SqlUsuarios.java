@@ -1,4 +1,5 @@
 //Santiago Martinez Diaz 9959-19-13847
+//Conexiones a la base de datos para obtener los datos de registro y login
 package Clases;
 
 
@@ -43,7 +44,7 @@ public class SqlUsuarios extends Conexion {
         PreparedStatement ps = null;
         ResultSet rs = null;
         Connection con = getConexion();
-
+  //busca la contraseña y retorna y si es falsa o verdadera para dar acceso al menu
         String sql = "SELECT id, usuario, password, nombre, idTipo FROM usuarios WHERE usuario = ? LIMIT 1";
 
         try {
