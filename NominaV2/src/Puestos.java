@@ -255,7 +255,10 @@ public class Puestos extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void añadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_añadirActionPerformed
-        //Codigo que permite Ingresar registros en la base de datos
+       //** CREADO EL CODIGO POR Nayre de Leon 9959-19-13837
+       //** FINALIZO EL 23 DE MAYO
+        
+       //Codigo que permite Ingresar registros en la base de datos
         try{
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/puestos1", "root", "");
             PreparedStatement pst = cn.prepareStatement("insert into puesto values(?,?,?,?,?)");
@@ -279,6 +282,8 @@ public class Puestos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_añadirActionPerformed
 
     private void modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarActionPerformed
+       //** CREADO EL CODIGO POR Nayre de Leon 9959-19-13837
+       //** FINALIZO EL 23 DE MAYO
         //Codigo que permite Modificar registros en la base de datos
         try {
             String ID = Txt_Buscar.getText().trim();
@@ -301,6 +306,8 @@ public class Puestos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_modificarActionPerformed
 
     private void buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarActionPerformed
+       //** CREADO EL CODIGO POR Nayre de Leon 9959-19-13837
+       //** FINALIZO EL 23 DE MAYO
         //Codigo que permite consultar registros en la base de datos
         try{
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/puestos1", "root", "");
@@ -325,6 +332,9 @@ public class Puestos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_buscarActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        //** CREADO EL CODIGO POR Nayre de Leon 9959-19-13837
+        //** FINALIZO EL 23 DE MAYO
+
         //Codigo que permite borrar registros en la base de datos
         try {
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/puestos1", "root", "");
@@ -345,7 +355,8 @@ public class Puestos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        //** CREADO EL CODIGO POR Santiago Martinez 9959-19-13847
+        //** FINALIZO EL 23 DE MAYO
           try{
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/puestos1", "root", "");
 

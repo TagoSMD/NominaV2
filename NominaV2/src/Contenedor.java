@@ -1,5 +1,5 @@
 //Se importaron las oonexiones y clases 
-//Santiago Martinez DiZ 9959-19-13857
+//Santiago Martinez DiaZ 9959-19-13857
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import Clases.Usuarios;
