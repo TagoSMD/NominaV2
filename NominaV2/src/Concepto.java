@@ -192,7 +192,7 @@ public class Concepto extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Codigo", "Nombre ", "Efecto"
+                "ID", "Codigo", "Nombre Concepto", "Efecto"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
