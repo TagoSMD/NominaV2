@@ -231,7 +231,7 @@ public class Departamentos extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Codigo Departamento", "Nombre Departamento", "Encargado Departamento", "Telefono Departamento", "Correo Departamento"
+                "ID", "Codigo", "Nombre", "Encargado", "Telefono", "Correo"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -255,8 +255,8 @@ public class Departamentos extends javax.swing.JInternalFrame {
                         .addGap(155, 155, 155)
                         .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 747, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(34, 34, 34)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 787, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())

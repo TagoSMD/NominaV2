@@ -200,7 +200,7 @@ public class Puestos extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Codigo", "Nombre Puesto", "Nombre Empleado", "Estatus"
+                "ID", "Codigo", "Nombre puesto", "Nombre Empleado", "Estatus"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -318,12 +318,12 @@ public class Puestos extends javax.swing.JInternalFrame {
 
             if(rs.next()){
 
-                txtCodigoPuesto.setText(rs.getString("codigo_concepto")); //** se modifica a la base de datos el codigo de puesto
-                txtNombrePuesto.setText(rs.getString("nombre_concepto")); //** se modifica a la base de datos el nombre del puesto
-                txtNombreEmpleado.setText(rs.getString("efecto_concepto"));
-                txtEstatusPuesto.setText(rs.getString("efecto_concepto"));
+                txtCodigoPuesto.setText(rs.getString("codigo_puesto")); //p** se modifica a la base de datos el codigo de puesto
+                txtNombrePuesto.setText(rs.getString("nombre_puesto")); //** se modifica a la base de datos el nombre del puesto
+                txtNombreEmpleado.setText(rs.getString("nombre_empleado"));
+                txtEstatusPuesto.setText(rs.getString("estatus_empleado"));
             } else {
-                JOptionPane.showMessageDialog(null, "Concepto No Registrado.");
+                JOptionPane.showMessageDialog(null, "Puesto No Registrado.");
             }
 
         }catch (Exception e){
