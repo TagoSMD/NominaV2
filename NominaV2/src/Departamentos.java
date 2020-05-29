@@ -50,6 +50,7 @@ public class Departamentos extends javax.swing.JInternalFrame {
         modificar = new javax.swing.JButton();
         buscar = new javax.swing.JButton();
         Txt_Buscar = new javax.swing.JTextField();
+        jButton3 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
@@ -170,6 +171,16 @@ public class Departamentos extends javax.swing.JInternalFrame {
             }
         });
 
+        jButton3.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 14)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(0, 0, 204));
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/erase-128.png"))); // NOI18N
+        jButton3.setText("Eliminar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -189,6 +200,11 @@ public class Departamentos extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(buscar)
                 .addGap(25, 25, 25))
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGap(23, 23, 23)
+                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGap(24, 24, 24)))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -202,6 +218,11 @@ public class Departamentos extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(buscar)
                 .addContainerGap(41, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGap(115, 115, 115)
+                    .addComponent(jButton3)
+                    .addContainerGap(116, Short.MAX_VALUE)))
         );
 
         jTable1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -269,12 +290,16 @@ public class Departamentos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_CorreoDepaActionPerformed
 
     private void añadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_añadirActionPerformed
-     try{
+     //** CREADO EL CODIGO POR Nayre de Leon 9959-19-13837
+    //** FINALIZO EL 23 DE MAYO
+    
+    //Codigo que permite Ingresar registros en la base de datos
+        try{
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/Departamentos", "root", "");
             PreparedStatement pst = cn.prepareStatement("insert into departamento values(?,?,?,?,?,?)");
             
             pst.setString(1, "0");
-            pst.setString(2, CodigoDepa.getText().trim());
+            pst.setString(2, CodigoDepa.getText().trim());    ///* se ingresa a la base de datos el codigo departamento
             pst.setString(3, NombreDepa.getText().trim());
             pst.setString(4, EncarDepa.getText().trim());
             pst.setString(5, TelefonoDepa.getText().trim());
@@ -295,13 +320,17 @@ public class Departamentos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_añadirActionPerformed
 
     private void modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarActionPerformed
-    try {
+   //** CREADO EL CODIGO POR Nayre de Leon 9959-19-13837
+    //** FINALIZO EL 23 DE MAYO
+    
+    //Codigo que permite MODIFICAR los registros en la base de datos
+        try {
             String ID = Txt_Buscar.getText().trim();
             
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/Departamentos", "root", "");
             PreparedStatement pst = cn.prepareStatement("update departamento set codigo_departamento = ?, nombre_departamento = ?, encargado_departamento = ?, telefono_departamento = ?, correo_departamento = ? where ID = " + ID);
 
-            pst.setString(1, CodigoDepa.getText().trim());
+            pst.setString(1, CodigoDepa.getText().trim());      ///* se Modificca a la base de datos el registro del codigo departamento
             pst.setString(2, NombreDepa.getText().trim());
             pst.setString(3, EncarDepa.getText().trim());
             pst.setString(4, TelefonoDepa.getText().trim());
@@ -317,7 +346,10 @@ public class Departamentos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_modificarActionPerformed
 
     private void buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarActionPerformed
-      //Codigo que permite consultar registros en la base de datos
+      //** CREADO EL CODIGO POR Nayre de Leon 9959-19-13837
+    //** FINALIZO EL 23 DE MAYO
+    
+    //**Codigo que permite consultar registros en la base de datos
         try{
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/Departamentos", "root", "");
             PreparedStatement pst = cn.prepareStatement("select * from departamento where ID = ?");
@@ -327,7 +359,7 @@ public class Departamentos extends javax.swing.JInternalFrame {
             
             if(rs.next()){
           
-                CodigoDepa.setText(rs.getString("codigo_departamento"));
+                CodigoDepa.setText(rs.getString("codigo_departamento"));    ///* se  busca en la base de datos el codigo departamento
                 NombreDepa.setText(rs.getString("nombre_departamento"));
                 EncarDepa.setText(rs.getString("encargado_departamento"));
                 TelefonoDepa.setText(rs.getString("telefono_departamento"));
@@ -342,8 +374,10 @@ public class Departamentos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_buscarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-
+      //** CREADO EL CODIGO POR Santiago Martinez 9959-19-13847
+    //** FINALIZO EL 23 DE MAYO
+    
+    
     try{
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/Departamentos", "root", "");
 
@@ -367,6 +401,29 @@ JOptionPane.showMessageDialog(this,e);
  
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        //** CREADO EL CODIGO POR Nayre de Leon 9959-19-13837
+        //** FINALIZO EL 23 DE MAYO
+
+        //Codigo que permite borrar registros en la base de datos
+        try {
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/Departamentos", "root", "");
+            PreparedStatement pst = cn.prepareStatement("delete from departamento where ID = ?");
+            //* Creado por Nayre
+            pst.setString(1, Txt_Buscar.getText().trim());
+            pst.executeUpdate();
+
+            CodigoDepa.setText("");  ///* se elimina el registro en la base de datos del codigo departamento
+            NombreDepa.setText("");  ///* se elimina el registro en la base de datos el nombre del departamento
+            EncarDepa.setText("");
+            TelefonoDepa.setText("");
+            CorreoDepa.setText("");
+            
+            JOptionPane.showMessageDialog(null, "Registro Eliminado.");
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField CodigoDepa;
@@ -378,6 +435,7 @@ JOptionPane.showMessageDialog(this,e);
     private javax.swing.JButton añadir;
     private javax.swing.JButton buscar;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

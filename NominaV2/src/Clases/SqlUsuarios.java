@@ -1,4 +1,5 @@
 //Santiago Martinez Diaz 9959-19-13847
+//** FINALIZO EL 23 DE MAYO
 //Conexiones a la base de datos para obtener los datos de registro y login
 package Clases;
 

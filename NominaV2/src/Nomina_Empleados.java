@@ -371,7 +371,10 @@ public class Nomina_Empleados extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 int ICod=0;
     private void RegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistroActionPerformed
- //** se utiliza este codigo para la tabla automaticamente haga los calculos que se ingresan en TextField
+ //** CREADO EL CODIGO POR Nayre de Leon 9959-19-13837
+//** FINALIZO EL 23 DE MAYO
+
+//** se utiliza este codigo para la tabla automaticamente haga los calculos que se ingresan en TextField
 /////////// SE AGREGA EL DECIMAL FORMAT PARA DECIMALES 
  DecimalFormat SueldoLiquid = new DecimalFormat("0.0");
  /////////// DECLARACION DE VARIABLES STRING FLOAT INT 

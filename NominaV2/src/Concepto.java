@@ -244,7 +244,8 @@ public class Concepto extends javax.swing.JInternalFrame {
 
     private void añadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_añadirActionPerformed
                 //Codigo que permite Ingresar registros en la base de datos
-
+                //** CREADO EL CODIGO POR Nayre de Leon 9959-19-13837
+//** FINALIZO EL 23 DE MAYO
         try{
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/conceptos1", "root", "");
             PreparedStatement pst = cn.prepareStatement("insert into concepto values(?,?,?,?)");
@@ -267,7 +268,7 @@ public class Concepto extends javax.swing.JInternalFrame {
 
     private void modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarActionPerformed
                //Codigo que permite modificar registros en la base de datos
-
+               //** CREADO EL CODIGO POR Nayre de Leon 9959-19-13837
         try {
             String ID = Txt_Buscar.getText().trim();
 
@@ -289,6 +290,7 @@ public class Concepto extends javax.swing.JInternalFrame {
 
     private void buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarActionPerformed
         //Codigo que permite consultar registros en la base de datos
+        //** CREADO EL CODIGO POR Nayre de Leon 9959-19-13837
         try{
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/Conceptos1", "root", "");
             PreparedStatement pst = cn.prepareStatement("select * from concepto where ID = ?");
@@ -312,6 +314,7 @@ public class Concepto extends javax.swing.JInternalFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         //Codigo que permite borrar registros en la base de datos
+        //** CREADO EL CODIGO POR Nayre de Leon 9959-19-13837
         try {
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/Conceptos1", "root", "");
             PreparedStatement pst = cn.prepareStatement("delete from concepto where ID = ?");
@@ -331,6 +334,7 @@ public class Concepto extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        //** CREADO EL CODIGO POR Santiago Martinez 9959-19-13847
 
         try{
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/Conceptos1", "root", "");

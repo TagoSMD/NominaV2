@@ -1,4 +1,5 @@
 //Santiago Martinez Diaz 9959-19-13847
+//** FINALIZO EL 23 DE MAYO
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import javax.swing.UIManager;

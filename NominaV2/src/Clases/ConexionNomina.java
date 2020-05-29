@@ -1,5 +1,6 @@
 //Conexion A la base de datos de Nomina para poder generar el reporte
 //Santiago Martinez Diaz 9959-19-13847
+//** FINALIZO EL 23 DE MAYO
 package Clases;
 
 import com.mysql.jdbc.Connection;
